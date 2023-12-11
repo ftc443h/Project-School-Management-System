@@ -8,6 +8,8 @@ use App\Http\Controllers\LearningController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PresenceSController;
+use App\Http\Controllers\PresenceTController;
 
 /*
 |--------------------------------------------------------------------------
