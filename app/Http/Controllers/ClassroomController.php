@@ -68,7 +68,7 @@ class ClassroomController extends Controller
                 'tbl_student_id' => 'required',
                 'tbl_teacher_id' => 'required',
                 'tbl_learning_id' => 'required',
-                'tbl_users_id' => 'required',
+                'users_id' => 'required',
             ],
 
             /* Message Error Classroom */
@@ -85,7 +85,7 @@ class ClassroomController extends Controller
                 'tbl_student_id.required' => 'Input Student Classroom',
                 'tbl_teacher_id.required' => 'Input Teacher Classroom',
                 'tbl_learning_id.required' => 'Input Learning Classroom',
-                'tbl_users_id.required' => 'Input users Classroom',
+                'users_id.required' => 'Input users Classroom',
             ]
         );
 
@@ -100,7 +100,7 @@ class ClassroomController extends Controller
             'tbl_student_id' => $request->tbl_student_id,
             'tbl_teacher_id' => $request->tbl_teacher_id,
             'tbl_learning_id' => $request->tbl_learning_id,
-            'tbl_users_id' => $request->users_id,
+            'users_id' => $request->users_id,
         ]);
 
         return redirect()->route('classroom.index')->with('success', 'Class Data Added Successfully');
@@ -161,7 +161,7 @@ class ClassroomController extends Controller
                 'tbl_student_id' => 'required',
                 'tbl_teacher_id' => 'required',
                 'tbl_learning_id' => 'required',
-                'tbl_users_id' => 'required',
+                'users_id' => 'required',
             ],
 
             /* Message Edit / Update Error Classroom */
@@ -178,7 +178,7 @@ class ClassroomController extends Controller
                 'tbl_student_id.required' => 'Input Student Classroom',
                 'tbl_teacher_id.required' => 'Input Teacher Classroom',
                 'tbl_learning_id.required' => 'Input Learning Classroom',
-                'tbl_users_id.required' => 'Input users Classroom',
+                'users_id.required' => 'Input users Classroom',
             ]);
 
         /* Edit Data OLD Classroom */

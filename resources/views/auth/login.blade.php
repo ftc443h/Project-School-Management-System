@@ -32,16 +32,11 @@
             <div class="container">
                 <div class="account-box">
                     <div class="account-wrapper">
-                        @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p class="mt-3">{{ $message }}</p>
-                        </div>
-                        @endif
+                        
                         <div class="account-logo">
                             <a href="{{ url('/') }}"><img src="{{ asset('admin/assets/img/logo.png') }}" alt="SchoolAdmin"></a>
                         </div>
                         <form method="POST" action="{{ route('login') }}">
-
                             @csrf
                             <div class="form-group">
                                 <label>Email</label>

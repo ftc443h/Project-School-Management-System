@@ -60,6 +60,12 @@ class PresenceSController extends Controller
             'tbl_student_id.required' => 'Input Student Presence'
         ]);
 
+        DB::table('tbl_presence_st')->insert([
+            'date_stud' => $request->date_stud,
+            'status_stud' => $request->status_stud,
+            'tbl_student_id' => $request->tbl_student_id
+        ]);
+
         return redirect()->route('presence_st.index')->with('success', 'Presence Data Added Successfully');
     }
 

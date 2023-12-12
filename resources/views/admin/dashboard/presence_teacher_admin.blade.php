@@ -124,9 +124,13 @@
                                         <label class="btn btn-sm {{ $btn_color }}">{{$presensiteacher->status_teac}}</label>
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{ route('presence_tc.show', $presensiteacher->id) }}" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
-                                        <a class="text-center edit" href="{{ route('presence_tc.edit', $presensiteacher->id)}}" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
-                                        <button class="text-center trash" name="delete" value="delete" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
+                                        <form method="POST" action="{{ route('presence_tc.destroy', $presensiteacher->id)}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="{{ route('presence_tc.show', $presensiteacher->id) }}" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
+                                            <a class="text-center edit" href="{{ route('presence_tc.edit', $presensiteacher->id)}}" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
+                                            <button class="text-center trash" name="delete" value="delete" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @php $no++; @endphp

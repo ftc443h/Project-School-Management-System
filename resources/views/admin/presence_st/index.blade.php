@@ -67,7 +67,7 @@
             <!-- DataTable with Hover -->
             <div class="col-lg-12">
                 <div class="card mb-4">
-                   
+
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 
                     </div>
@@ -128,6 +128,7 @@
             </div>
         </div>
         <!--Row-->
-        @endif
     </div>
-    @endsection
+    @endif
+</div>
+@endsection

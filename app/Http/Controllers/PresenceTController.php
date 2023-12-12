@@ -35,9 +35,9 @@ class PresenceTController extends Controller
     public function create()
     {
         /* Create Presence & Teacher */
-        $teacher = Teacher::all();
+        $teacher_cre = Teacher::all();
         $presence_Tcreate = PresenceT::all();
-        return view('admin.presence_tc.create', compact('presence_Tcreate', 'teacher'));
+        return view('admin.presence_tc.create', compact('presence_Tcreate', 'teacher_cre'));
     }
 
     /**
@@ -122,10 +122,11 @@ class PresenceTController extends Controller
         ]);
 
         /* DB Table Presence Teacher */
-        DB::table('tbl_presence_tec')->insert([
+        DB::table('tbl_presence_tec')->where('id', $id)->update([
             'date_teac' => $request->date_teac,
             'status_teac' => $request->status_teac,
             'tbl_teacher_id' => $request->tbl_teacher_id,
+            'update_at' => now(),
         ]);
 
         return redirect()->route('presence_tc.index')->with('success', 'Presence Teacher Data Added Successfully');
@@ -139,6 +140,8 @@ class PresenceTController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $presen_DLT = PresenceT::find($id);
+        PresenceT::where('id', $id)->delete();
+        return redirect()->route('presence_tc.index')->with('success', 'Success Delete Data Presence Teacher');
     }
 }

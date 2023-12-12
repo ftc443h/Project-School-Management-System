@@ -5,20 +5,124 @@
     @if(Auth::user()->role_users != 'teacher')
     @include('admin.dashboard.student_admin')
     @else
-    <use>
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve" class="whistle">
-            <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
-            <g>
-                <g transform="translate(0.000000,511.000000) scale(0.100000,-0.100000)">
-                    <path d="M4295.8,3963.2c-113-57.4-122.5-107.2-116.8-622.3l5.7-461.4l63.2-55.5c72.8-65.1,178.1-74.7,250.8-24.9c86.2,61.3,97.6,128.3,97.6,584c0,474.8-11.5,526.5-124.5,580.1C4393.4,4001.5,4372.4,4001.5,4295.8,3963.2z" />
-                    <path d="M3053.1,3134.2c-68.9-42.1-111-143.6-93.8-216.4c7.7-26.8,216.4-250.8,476.8-509.3c417.4-417.4,469.1-463.4,526.5-463.4c128.3,0,212.5,88.1,212.5,224c0,67-26.8,97.6-434.6,509.3c-241.2,241.2-459.5,449.9-488.2,465.3C3181.4,3180.1,3124,3178.2,3053.1,3134.2z" />
-                    <path d="M2653,1529.7C1644,1445.4,765.1,850,345.8-32.7C62.4-628.2,22.2-1317.4,234.8-1960.8C451.1-2621.3,947-3186.2,1584.6-3500.2c1018.6-501.6,2228.7-296.8,3040.5,515.1c317.8,317.8,561,723.7,670.1,1120.1c101.5,369.5,158.9,455.7,360,553.3c114.9,57.4,170.4,65.1,1487.7,229.8c752.5,93.8,1392,181.9,1420.7,193.4C8628.7-857.9,9900,1250.1,9900,1328.6c0,84.3-67,172.3-147.4,195.3c-51.7,15.3-790.8,19.1-2558,15.3l-2487.2-5.7l-55.5-63.2l-55.5-61.3v-344.6V719.8h-411.7h-411.7v325.5c0,509.3,11.5,499.7-616.5,494C2921,1537.3,2695.1,1533.5,2653,1529.7z" />
-                </g>
-            </g>
-        </svg>
-    </use>
-    <h1>403</h1>
-    <h2>Not this time, access teacher forbidden!</h2>
+
+    <div class="content container-fluid">
+
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p class="mt-3">{{ $message }}</p>
+        </div>
+        @endif
+
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                <div class="dash-widget dash-widget5">
+                    <span class="float-left"><img src="{{ asset('admin/assets/img/dash/dash-1.png') }}" alt="" width="80"></span>
+                    <div class="dash-widget-info text-right">
+                        <span>Students</span>
+                        <h3>{{ $studentCount }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                <div class="dash-widget dash-widget5">
+                    <div class="dash-widget-info text-left d-inline-block">
+                        <span>Teacher</span>
+                        <h3>{{ $teacherCount }}</h3>
+                    </div>
+                    <span class="float-right"><img src="{{ asset('admin/assets/img/dash/dash-5.png') }}" width="80" alt=""></span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                <div class="dash-widget dash-widget5">
+                    <span class="float-left"><img src="{{ asset('admin/assets/img/dash/dash-2.png') }}" alt="" width="80"></span>
+                    <div class="dash-widget-info text-right">
+                        <span>Classroom</span>
+                        <h3>{{ $classroomCount }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                <div class="dash-widget dash-widget5">
+                    <div class="dash-widget-info d-inline-block text-left">
+                        <span>Learning</span>
+                        <h3>{{ $learningCount }}</h3>
+                    </div>
+                    <span class="float-right"><img src="{{ asset('admin/assets/img/dash/dash-6.png') }}" alt="" width="80"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-header">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <h5 class="text-uppercase mb-0 mt-0 page-title">Data Student</h5>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <ul class="breadcrumb float-right p-0 mb-0">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i> Home</a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="#">Student</a></li>
+                        <li class="breadcrumb-item"><span>Data Student</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row -->
+        <div class="row">
+            <!-- DataTable with Hover -->
+            <div class="col-lg-12">
+                <div class="card mb-4">
+
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+
+                    </div>
+                    <div class="table-responsive p-3">
+                        <table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">Photo</th>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Birthday</th>
+                                    <th class="text-center">Gender</th>
+                                    <th class="text-center">Email</th>
+                                    <th class="text-center">Phone Number</th>
+                                    <th class="text-center">Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php $no = 1; @endphp
+                                @foreach($student as $students)
+                                <tr>
+                                    <td class="text-center">{{ $no }}</td>
+                                    <td class="text-center">
+                                        @empty($students->photo_student)
+                                        <img src="{{url('admin/assets/img/profile/notprofileimages.png')}}" alt="" width="15%" style="width: 50px;">
+                                        @else
+                                        <img src="{{url('admin/assets/img/profile/')}}/{{$students->photo_student}}" alt="" width="15%" style="width: 40px;">
+                                        @endempty
+                                    </td>
+                                    <td class="text-center">{{ $students->code_student }}</td>
+                                    <td class="text-center">{{ $students->name_student }}</td>
+                                    <td class="text-center">{{ $students->birthday_student }}</td>
+                                    <td class="text-center">{{ $students->gender_student}}</td>
+                                    <td class="text-center">{{ $students->email_student }}</td>
+                                    <td class="text-center">{{ $students->phone_student }}</td>
+                                    <td class="text-center">{{ $students->address_student }}</td>
+                                </tr>
+                                @php $no++; @endphp
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Row-->
+    </div>
     @endif
 </div>
 @endsection

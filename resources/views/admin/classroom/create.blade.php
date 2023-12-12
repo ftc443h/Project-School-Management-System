@@ -61,7 +61,7 @@
                                         <option class="optins" value="{{$teachers->id}}" {{$sel}}>{{$teachers->name_teacher}}</option>
                                         @endforeach
                                     </select>
-                                    @error('tbl_teacher_id')
+                                    @error('name_teacher')
                                     <div class="invalid-feedback">
                                         {{$message}}
                                     </div>

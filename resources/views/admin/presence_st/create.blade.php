@@ -68,7 +68,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <a href="{{url('/learning')}}" class="btn btn-danger btp">Cancel</a>
+                            <a href="{{url('/presence_st')}}" class="btn btn-danger btp">Cancel</a>
                             <button type="submit" name="proses" value="simpan" id="simpan" class="btn btn-primary btp">Create</button>
                         </form>
                     </div>
