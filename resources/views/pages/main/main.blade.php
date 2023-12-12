@@ -274,15 +274,15 @@
 
         <header class="section-header">
             <h2>Team</h2>
-            <p>Our hard working team</p>
+            <p>Our team</p>
         </header>
 
         <div class="row gy-4">
 
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                 <div class="member">
                     <div class="member-img">
-                        <img src="{{ asset('pages/assets/img/team/team-1.jpg') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('pages/assets/img/team/patan.png') }}" class="img-fluid" alt="">
                         <div class="social">
                             <a href=""><i class="bi bi-twitter"></i></a>
                             <a href=""><i class="bi bi-facebook"></i></a>
@@ -291,17 +291,17 @@
                         </div>
                     </div>
                     <div class="member-info">
-                        <h4>Walter White</h4>
-                        <span>Chief Executive Officer</span>
-                        <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
+                        <h4>Fatchan Muhammad Hakim</h4>
+                        <span>Leader</span>
+                        <p>"Dalam keberagaman ide dan semangat yang tak tergoyahkan, tim kami adalah pionir yang bersatu demi menciptakan monumen keunggulan. Kita adalah pembangun masa depan pendidikan."</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                 <div class="member">
                     <div class="member-img">
-                        <img src="{{ asset('pages/assets/img/team/team-2.jpg') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('pages/assets/img/team/rani.png') }}" class="img-fluid" alt="">
                         <div class="social">
                             <a href=""><i class="bi bi-twitter"></i></a>
                             <a href=""><i class="bi bi-facebook"></i></a>
@@ -310,17 +310,17 @@
                         </div>
                     </div>
                     <div class="member-info">
-                        <h4>Sarah Jhonson</h4>
-                        <span>Product Manager</span>
-                        <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
+                        <h4>Rani Kurniawati</h4>
+                        <span>Member</span>
+                        <p>"Sama seperti puzzle yang indah terbentuk dari kepingan-kepingan yang saling melengkapi, setiap kontribusi dalam tim kami adalah bagian tak tergantikan."</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                 <div class="member">
                     <div class="member-img">
-                        <img src="{{ asset('pages/assets/img/team/team-3.jpg') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('pages/assets/img/team/bagass.png') }}" class="img-fluid" alt="">
                         <div class="social">
                             <a href=""><i class="bi bi-twitter"></i></a>
                             <a href=""><i class="bi bi-facebook"></i></a>
@@ -329,17 +329,17 @@
                         </div>
                     </div>
                     <div class="member-info">
-                        <h4>William Anderson</h4>
-                        <span>CTO</span>
-                        <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
+                        <h4>Bagas Adi Kurniawan</h4>
+                        <span>Member</span>
+                        <p>"Dalam kebersamaan, kita melukis kanvas pendidikan dengan warna-warna inovasi. Setiap anggota tim adalah kuas yang membentuk visi luar biasa."</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
                 <div class="member">
                     <div class="member-img">
-                        <img src="{{ asset('pages/assets/img/team/team-4.jpg') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('pages/assets/img/team/delaa.png') }}" class="img-fluid" alt="">
                         <div class="social">
                             <a href=""><i class="bi bi-twitter"></i></a>
                             <a href=""><i class="bi bi-facebook"></i></a>
@@ -348,9 +348,28 @@
                         </div>
                     </div>
                     <div class="member-info">
-                        <h4>Amanda Jepson</h4>
-                        <span>Accountant</span>
-                        <p>Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut aliquid doloremque ut possimus ipsum officia.</p>
+                        <h4>Dela Septriani</h4>
+                        <span>Member</span>
+                        <p>"Dengan tekad yang kuat dan semangat yang membara, kita adalah pembawa perubahan. Setiap baris kode yang kita tulis adalah langkah maju dalam membangun jembatan menuju pendidikan yang lebih baik."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500">
+                <div class="member">
+                    <div class="member-img">
+                        <img src="{{ asset('pages/assets/img/team/Satriya.png') }}" class="img-fluid" alt="">
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h4>Satriya Yoga Madhasatya</h4>
+                        <span>Member</span>
+                        <p>"Dalam harmoni yang tak tergantikan, kita adalah orkestra yang menyusun simfoni keberhasilan. Setiap individu dalam tim kita adalah pemain yang memberikan kontribusi unik untuk mencapai tujuan bersama."</p>
                     </div>
                 </div>
             </div>
