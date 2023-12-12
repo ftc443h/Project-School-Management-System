@@ -27,7 +27,7 @@
                         <i class="bi bi-exclude"> <span class="spanCreate"> Welcome To Classroom</span></i>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('classroom.store') }}">
+                        <form method="POST" action="{{ route('classroom.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row ">
                                 <label class="bi bi-building-fill-add col-form-label col-md-2 LabForm"> Classroom</label>
@@ -54,7 +54,7 @@
                             <div class="form-group row">
                                 <label class="bi bi-person-fill-add col-form-label col-md-2 LabForm"> Teacher</label>
                                 <div class="col-md-10">
-                                    <select name="name_teacher" class="form-control @error ('name_teacher') is-invalid @else is-valid @enderror">
+                                    <select name="tbl_teacher_id" class="form-control @error ('name_teacher') is-invalid @else is-valid @enderror">
                                         <option class="">-- Please Select --</option>
                                         @foreach($teacher as $teachers)
                                         @php $sel = ( old('name_teacher')==$teachers['id'] ) ? 'selected' : ''; @endphp
@@ -71,7 +71,7 @@
                             <div class="form-group row">
                                 <label class="bi bi-person-fill-add col-form-label col-md-2 LabForm"> Student</label>
                                 <div class="col-md-10">
-                                    <select name="name_student" class="form-control @error ('name_student') is-invalid @else is-valid @enderror">
+                                    <select name="tbl_student_id" class="form-control @error ('name_student') is-invalid @else is-valid @enderror">
                                         <option class="">-- Please Select --</option>
                                         @foreach($student as $students)
                                         @php $sel = ( old('name_student')==$students['id'] ) ? 'selected' : ''; @endphp
@@ -88,7 +88,7 @@
                             <div class="form-group row">
                                 <label class="bi bi-book-half col-form-label col-md-2 LabForm"> Learning</label>
                                 <div class="col-md-10">
-                                    <select name="learning_class" class="form-control @error ('learning_class') is-invalid @else is-valid @enderror">
+                                    <select name="tbl_learning_id" class="form-control @error ('learning_class') is-invalid @else is-valid @enderror">
                                         <option class="">-- Please Select --</option>
                                         @foreach($learning as $learnings)
                                         @php $sel = ( old('learning_class')==$learnings['id'] ) ? 'selected' : ''; @endphp
@@ -105,7 +105,7 @@
                             <div class="form-group row">
                                 <label class="bi bi-people-fill col-form-label col-md-2 LabForm"> Users</label>
                                 <div class="col-md-10">
-                                    <select name="name" class="form-control @error ('name') is-invalid @else is-valid @enderror">
+                                    <select name="users_id" class="form-control @error ('name') is-invalid @else is-valid @enderror">
                                         <option class="">-- Please Select --</option>
                                         @foreach($users as $userss)
                                         @php $sel = ( old('name')==$userss['id'] ) ? 'selected' : ''; @endphp

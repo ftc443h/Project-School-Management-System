@@ -79,6 +79,7 @@ class PresenceSController extends Controller
     {
         $student_SView = Student::all();
         $presensist_view = PresenceS::find($id);
+
         return view('admin.presence_st.view', compact('presensist_view', 'student_SView'));
     }
 
@@ -90,7 +91,10 @@ class PresenceSController extends Controller
      */
     public function edit($id)
     {
-        //
+        $presence_Sedit = PresenceS::find($id);
+        $student_Sedit = Student::all();
+
+        return view('admin.presence_st.edit', compact('presence_Sedit', 'student_Sedit'));
     }
 
     /**
@@ -102,7 +106,27 @@ class PresenceSController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        /* Validate Presence & Student */
+        $request->validate([
+            'date_stud' => 'required',
+            'status_stud' => 'required',
+            'tbl_student_id' => 'required'
+        ],
+        
+        /* Message Error Classroom */
+        [
+            'date_stud.required' => 'Input Date Presence',
+            'status_stud.required' => 'Input Status Presence',
+            'tbl_student_id.required' => 'Input Student Presence'
+        ]);
+
+        DB::table('tbl_presence_st')->where('id', $id)->update([
+            'date_stud' => $request->date_stud,
+            'status_stud' => $request->status_stud,
+            'tbl_student_id' => $request->tbl_student_id
+        ]);
+
+        return redirect()->route('presence_st.index')->with('success', 'Presence Student Data Edit Successfully');
     }
 
     /**
@@ -113,6 +137,8 @@ class PresenceSController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $presen_SDLT = PresenceS::find($id);
+        PresenceS::where('id', $id)->delete();
+        return redirect()->route('presence_st.index')->with('success', 'Success Delete Data Presence Student');
     }
 }

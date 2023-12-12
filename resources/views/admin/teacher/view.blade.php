@@ -31,9 +31,9 @@
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <div class="aboutprofile-pic text-center">
                                                     @empty($teacher_view->photo_teacher)
-                                                    <img class="text-center" src="{{url('admin/assets/img/profile/notprofileimages.png')}}" alt="" width="15%" style="width: 50px;">
+                                                    <img class="text-center" src="{{url('admin/assets/img/profile/notprofileimages.png')}}" alt="" width="15%" style="width: 70px; height: 95px; margin-top: -25px;">
                                                     @else
-                                                    <img class="text-center" src="{{url('admin/assets/img/profile/')}}/{{$teacher_view->photo_teacher}}" alt="" width="15%" style="width: 50px; margin-top: -25px;">
+                                                    <img class="text-center" src="{{url('admin/assets/img/profile/')}}/{{$teacher_view->photo_teacher}}" alt="" width="15%" style="width: 70px; height: 95px; margin-top: -25px;">
                                                     @endempty
                                                 </div>
                                                 <div class="aboutprofile-name">

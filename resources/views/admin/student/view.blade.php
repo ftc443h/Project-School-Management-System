@@ -31,9 +31,9 @@
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <div class="aboutprofile-pic text-center">
                                                     @empty($student_view->photo_student)
-                                                    <img src="{{url('admin/assets/img/profile/notprofileimages.png')}}" alt="" width="15%" style="width: 50px;">
+                                                    <img src="{{url('admin/assets/img/profile/notprofileimages.png')}}" alt="" width="15%" style="width: 70px; height: 95px; margin-top: -25px;">
                                                     @else
-                                                    <img src="{{url('admin/assets/img/profile/')}}/{{$student_view->photo_student}}" alt="" width="15%" style="width: 40px; margin-top: -25px;"">
+                                                    <img src="{{url('admin/assets/img/profile/')}}/{{$student_view->photo_student}}" alt="" width="15%" style="width: 70px; height: 95px; margin-top: -25px;">
                                                     @endempty
                                                 </div>
                                                 <div class="aboutprofile-name">
@@ -144,7 +144,7 @@
                                                         survived not only five centuries, but also the leap
                                                         into electronic typesetting, remaining essentially
                                                         unchanged.</p>
-                                                    <a class="btn btn-warning text-white edit-prof">Edit</a>
+                                                    <a href="{{ route('student.edit', $student_view->id) }}" class="btn btn-warning text-white edit-prof">Edit</a>
                                                     <a href="{{url('/student')}}" class="btn btn-danger text-white back-prof">Back</a>
                                                 </div>
                                             </div>

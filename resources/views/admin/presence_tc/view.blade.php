@@ -81,7 +81,7 @@
                                         <small class="text-muted">
                                             <!-- Kondisi Merubah Warna Otomatis Sesuai Status Presence Teacher -->
                                             @php
-                                            $status_Present = $presens_view->status_teac;
+                                            $status_Present = $presens_view->status_stud;
                                             $btn_color = '';
 
                                             switch ($status_Present){

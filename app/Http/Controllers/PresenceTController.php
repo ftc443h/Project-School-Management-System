@@ -95,6 +95,7 @@ class PresenceTController extends Controller
     {
         $teacher_Edt = Teacher::all();
         $presence_Tedit = PresenceT::find($id);
+
         return view('admin.presence_tc.edit', compact('presence_Tedit', 'teacher_Edt'));
     }
 
@@ -129,7 +130,7 @@ class PresenceTController extends Controller
             'update_at' => now(),
         ]);
 
-        return redirect()->route('presence_tc.index')->with('success', 'Presence Teacher Data Added Successfully');
+        return redirect()->route('presence_tc.index')->with('success', 'Presence Teacher Data Edit Successfully');
     }
 
     /**

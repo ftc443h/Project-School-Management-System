@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="page-header">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
@@ -90,22 +90,22 @@
                             </thead>
                             <tbody>
                                 @php $no = 1; @endphp
-                                @foreach($presensi_s as $presence_st)
+                                @foreach($presensi_s as $presence_stt)
                                 <tr>
                                     <td class="text-center">{{ $no }}</td>
                                     <td class="text-center">
-                                        @empty($presence_st->photoS)
+                                        @empty($presence_stt->photoS)
                                         <img src="{{url('admin/assets/img/profile/notprofileimages.png')}}" alt="" width="15%" style="width: 50px;">
                                         @else
-                                        <img src="{{url('admin/assets/img/profile/')}}/{{$presence_st->photoS}}" alt="" width="15%" style="width: 40px;">
+                                        <img src="{{url('admin/assets/img/profile/')}}/{{$presence_stt->photoS}}" alt="" width="15%" style="width: 40px;">
                                         @endempty
                                     </td>
-                                    <td class="text-center">{{ $presence_st->student }}</td>
-                                    <td class="text-center">{{ $presence_st->date_stud }}</td>
+                                    <td class="text-center">{{ $presence_stt->student }}</td>
+                                    <td class="text-center">{{ $presence_stt->date_stud }}</td>
                                     <td class="text-center">
                                         <!-- Kondisi Merubah Warna Otomatis Sesuai Status Presence Teacher -->
                                         @php
-                                        $status_Present = $presence_st->status_stud;
+                                        $status_Present = $presence_stt->status_stud;
                                         $btn_color = '';
 
                                         switch ($status_Present){
@@ -122,12 +122,15 @@
                                         $status_Present = '';
                                         }
                                         @endphp
-                                        <label class="btn btn-sm {{ $btn_color }}">{{$presence_st->status_stud}}</label>
+                                        <label class="btn btn-sm {{ $btn_color }}">{{$presence_stt->status_stud}}</label>
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{ route('presence_st.show', $presence_st->id)}}" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
-                                        <a class="text-center edit" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
-                                        <a class="text-center trash" title="Trash"><i class="bi bi-trash3 text-center"></i></a>
+                                        <form method="POST" action="{{ route('presence_st.destroy', $presence_stt->id)}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="{{ route('presence_st.show', $presence_stt->id) }}" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
+                                            <a href="{{ route('presence_st.edit', $presence_stt->id) }}" class="text-center edit" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
+                                            <a class="text-center trash" title="Trash"><i class="bi bi-trash3 text-center"></i></a>
                                     </td>
                                 </tr>
                                 @php $no++; @endphp
