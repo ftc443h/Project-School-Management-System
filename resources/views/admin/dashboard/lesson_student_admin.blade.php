@@ -89,13 +89,6 @@
                                     <td class="text-center"></td>
                                     <td class="text-center"></td>
                                     <td class="text-center"></td>
-                                    <td class="text-center">
-                                        
-                                            <a class="text-center eyes" href="{{ route('learning.show', $learn->id)}}" title="View"><i class="bi bi-eye-fill text-center"></i></a>
-                                            <a class="text-center edit" href="{{ route('learning.edit', $learn->id)}}" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
-                                            <button class="text-center trash" name="delete" value="delete" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
-                                        
-                                    </td>
                                 </tr>
                         
                             </tbody>

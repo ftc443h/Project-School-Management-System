@@ -3,7 +3,7 @@
 
 <div class="page-wrapper">
     @if(Auth::user()->role_users != 'teacher')
-    @include('admin.dashboard.lesson_admin_admin')
+    @include('admin.dashboard.lesson_student_admin')
     @else
     <div class="content container-fluid">
         <div class="row">
