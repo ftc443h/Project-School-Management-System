@@ -4,12 +4,6 @@
 <div class="page-wrapper">
     <div class="content container-fluid">
 
-        @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p class="mt-3">{{ $message }}</p>
-        </div>
-        @endif
-
         <div class="row">
             <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                 <div class="dash-widget dash-widget5">
@@ -26,85 +20,128 @@
                         <span>Teachers</span>
                         <h3>{{ $teacherCount }}</h3>
                     </div>
-                    <span class="float-right"><img src="{{ asset('admin/assets/img/dash/dash-2.png') }}" width="80" alt=""></span>
+                    <span class="float-right"><img src="{{ asset('admin/assets/img/dash/dash-5.png') }}" width="80" alt=""></span>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                 <div class="dash-widget dash-widget5">
-                    <div class="dash-widget-info text-left d-inline-block">
-                        <span>Presence Teacher</span>
-                        <h3>{{ $presensi_tCount }}</h3>
-                    </div>
-                    <span class="float-right"><img src="{{ asset('admin/assets/img/dash/dash-2.png') }}" width="80" alt=""></span>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                <div class="dash-widget dash-widget5">
-                    <span class="float-left"><img src="{{ asset('admin/assets/img/dash/dash-3.png') }}" alt="" width="80"></span>
+                    <span class="float-left"><img src="{{ asset('admin/assets/img/dash/dash-2.png') }}" alt="" width="80"></span>
                     <div class="dash-widget-info text-right">
-                        <span>Presence Student</span>
-                        <h3>{{ $presensi_sCount }}</h3>
+                        <span>Classroom</span>
+                        <h3>{{ $classroomCount }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                <div class="dash-widget dash-widget5">
+                    <span class="float-left"><img src="{{ asset('admin/assets/img/dash/dash-6.png') }}" alt="" width="80"></span>
+                    <div class="dash-widget-info text-right">
+                        <span>Learning</span>
+                        <h3>{{ $learningCount }}</h3>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="page-header">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                    <h5 class="text-uppercase mb-0 mt-0 page-title">Presence Student</h5>
+                <div class="col-md-6">
+                    <h3 class="page-title mb-0">Edit Lesson Value Class</h3>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                    <ul class="breadcrumb float-right p-0 mb-0">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i> Home</a>
-                        </li>
-                        <li class="breadcrumb-item"><a href="#">Student</a></li>
-                        <li class="breadcrumb-item"><span>Presence Student</span></li>
+                <div class="col-md-6">
+                    <ul class="breadcrumb mb-0 p-0 float-right">
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="breadcrumb-item"><span>Edit Lesson Value Class</span></li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Row -->
         <div class="row">
-            <!-- DataTable with Hover -->
             <div class="col-lg-12">
-                <div class="card mb-4">
-                    <div class="weppr-class container-fluid">
-                        <a class="text-center create" href="" title="Create"><i class="bi bi-plus-circle"></i></a>
+                <div class="card">
+                    <div class="card-header text-center">
+                        <i class="bi bi-exclude"> <span class="spanCreate"> Welcome To Edit Lesson Value Class</span></i>
                     </div>
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-
-                    </div>
-                    <div class="table-responsive p-3">
-                        <table class="table align-items-center table-flush table-hover" id="dataTableHover">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th class="text-center">No</th>
-                                    <th class="text-center">Student</th>
-                                    <th class="text-center">Date</th>
-                                    <th class="text-center">Status</th>
-                                    <th class="text-center">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="text-center"></td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center">
-                                        <a href="" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
-                                        <a class="text-center edit" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
-                                        <a class="text-center trash" title="Trash"><i class="bi bi-trash3 text-center"></i></a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('lesson_value.update', $lesson_Edit->id) }}" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <div class="form-group row">
+                                <label class="bi bi-person-fill-add col-form-label col-md-2 LabForm"> Student</label>
+                                <div class="col-md-10">
+                                    <select name="tbl_student_id" class="form-control @error ('name_student') is-invalid @else is-valid @enderror">
+                                        <option class="">-- Please Select --</option>
+                                        @foreach($Std_Edit as $lessonST)
+                                        @php $opti_lessonST = ($lessonST->id == $lesson_Edit->tbl_student_id) ? 'selected' : ''; @endphp
+                                        <option class="optins" value="{{$lessonST->id}}" {{$opti_lessonST}}>{{$lessonST->name_student}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('name_student')
+                                    <div class="invalid-feedback">
+                                        {{$message}}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="bi bi-book-half col-form-label col-md-2 LabForm"> Learning</label>
+                                <div class="col-md-10">
+                                    <select name="tbl_learning_id" class="form-control @error ('learning_class') is-invalid @else is-valid @enderror">
+                                        <option class="">-- Please Select --</option>
+                                        @foreach($lear_Edit as $lessonVL)
+                                        @php $opti_lessonVL = ($lessonVL->id == $lesson_Edit->tbl_learning_id) ? 'selected' : ''; @endphp
+                                        <option class="optins" value="{{$lessonVL->id}}" {{$opti_lessonVL}}>{{$lessonVL->learning_class}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('learning_class')
+                                    <div class="invalid-feedback">
+                                        {{$message}}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row ">
+                                <label class="bi bi-pencil col-form-label col-md-2 LabForm"> Daily Tasks</label>
+                                <div class="col-md-10">
+                                    <input type="text" value="{{ $lesson_Edit->dailytasks_grade }}" id="dailytasks_grade" name="dailytasks_grade" class="form-control place @error ('dailytasks_grade') is-invalid @else is-valid @enderror" placeholder="Daily Tasks Input">
+                                    @error('dailytasks_grade')
+                                    <div class="invalid-feedback">
+                                        {{$message}}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row ">
+                                <label class="bi bi-pencil col-form-label col-md-2 LabForm"> UTS</label>
+                                <div class="col-md-10">
+                                    <input type="text" value="{{ $lesson_Edit->uts_grade }}" id="uts_grade" name="uts_grade" class="form-control place @error ('uts_grade') is-invalid @else is-valid @enderror" placeholder="UTS Input">
+                                    @error('uts_grade')
+                                    <div class="invalid-feedback">
+                                        {{$message}}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row ">
+                                <label class="bi bi-pencil col-form-label col-md-2 LabForm"> UAS</label>
+                                <div class="col-md-10">
+                                    <input type="text" value="{{ $lesson_Edit->uas_grade }}" id="uas_grade" name="uas_grade" class="form-control place @error ('uas_grade') is-invalid @else is-valid @enderror" placeholder="UAS Input">
+                                    @error('uas_grade')
+                                    <div class="invalid-feedback">
+                                        {{$message}}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <a href="{{url('/lesson_value')}}" class="btn btn-danger btp">Cancel</a>
+                            <button type="submit" name="proses" value="simpan" id="simpan" class="btn btn-primary btp">Edit</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!--Row-->
+
     </div>
     @include('admin.classroom.message')
 </div>

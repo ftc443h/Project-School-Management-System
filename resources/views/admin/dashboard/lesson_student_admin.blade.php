@@ -78,6 +78,7 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th class="text-center">No</th>
+                                    <th class="text-center">Photo</th>
                                     <th class="text-center">Student</th>
                                     <th class="text-center">Lesson</th>
                                     <th class="text-center">Daily Tasks</th>
@@ -95,6 +96,13 @@
                                 @foreach($lessonValue as $lessoV)
                                 <tr>
                                     <td class="text-center">{{ $no }}</td>
+                                    <td class="text-center">
+                                        @empty($lessoV->photo)
+                                        <img src="{{url('admin/assets/img/profile/notprofileimages.png')}}" alt="" width="15%" style="width: 50px;">
+                                        @else
+                                        <img src="{{url('admin/assets/img/profile/')}}/{{$lessoV->photo}}" alt="" width="15%" style="width: 40px;">
+                                        @endempty
+                                    </td>
                                     <td class="text-center">{{ $lessoV->student }}</td>
                                     <td class="text-center">{{ $lessoV->learning }}</td>
                                     <td class="text-center">{{ $lessoV->dailytasks_grade }}</td>
@@ -124,11 +132,11 @@
                                         <label class="btn btn-sm {{ $btn_color }}">{{ $lessoV->ketnilai }}</label>
                                     </td>
                                     <td class="text-center">
-                                        <form method="POST" action="#">
+                                        <form method="POST" action="{{ route('lesson_value.destroy', $lessoV->id) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <a href="#" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
-                                            <a href="#" class="text-center edit" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
+                                            <a href="{{ route('lesson_value.show', $lessoV->id) }}" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
+                                            <a href="{{ route('lesson_value.edit', $lessoV->id) }}" class="text-center edit" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
                                             <button class="text-center trash" name="delete" value="delete" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
                                         </form>
                                     </td>
