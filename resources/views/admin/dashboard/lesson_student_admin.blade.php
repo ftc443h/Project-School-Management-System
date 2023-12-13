@@ -22,7 +22,7 @@
             <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                 <div class="dash-widget dash-widget5">
                     <div class="dash-widget-info text-left d-inline-block">
-                        <span>Teachers</span>
+                        <span>Lesson Value</span>
                         <h3>{{ $teacherCount }}</h3>
                     </div>
                     <span class="float-right"><img src="{{ asset('admin/assets/img/dash/dash-5.png') }}" width="80" alt=""></span>
@@ -68,7 +68,7 @@
             <div class="col-lg-12">
                 <div class="card mb-4">
                     <div class="weppr-class container-fluid">
-                        <a class="text-center create" href="" title="Create"><i class="bi bi-plus-circle"></i></a>
+                        <a class="text-center create" href="{{ route('lesson_value.create') }}" title="Create"><i class="bi bi-plus-circle"></i></a>
                     </div>
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 
@@ -78,19 +78,70 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th class="text-center">No</th>
-                                    <th class="text-center">Learning</th>
-                                    <th class="text-center">Category</th>
+                                    <th class="text-center">Student</th>
+                                    <th class="text-center">Lesson</th>
+                                    <th class="text-center">Daily Tasks</th>
+                                    <th class="text-center">UTS</th>
+                                    <th class="text-center">UAS</th>
+                                    <th class="text-center">Final Score</th>
+                                    <th class="text-center">Grade</th>
+                                    <th class="text-center">Predikat</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                                @php $no = 1; @endphp
+                                @foreach($lessonValue as $lessoV)
                                 <tr>
-                                    <td class="text-center"></td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center"></td>
+                                    <td class="text-center">{{ $no }}</td>
+                                    <td class="text-center">{{ $lessoV->student }}</td>
+                                    <td class="text-center">{{ $lessoV->learning }}</td>
+                                    <td class="text-center">{{ $lessoV->dailytasks_grade }}</td>
+                                    <td class="text-center">{{ $lessoV->uts_grade }}</td>
+                                    <td class="text-center">{{ $lessoV->uas_grade }}</td>
+                                    <td class="text-center">{{ $lessoV->average_grade }}</td>
+                                    <td class="text-center">{{ $lessoV->grade }}</td>
+                                    <td class="text-center">
+
+                                        @php
+                                        $status_predikat = $lessoV->predikat;
+                                        $btn_color = '';
+
+                                        switch ($status_predikat){
+                                        case 'Very Good';
+                                        $btn_color = 'btn-success';
+                                        break;
+                                        case 'Good';
+                                        $btn_color = 'btn-info';
+                                        break;
+                                        case 'Enough':
+                                        $btn_color = 'btn-secondary';
+                                        break;
+                                        case 'Bad':
+                                        $btn_color = 'btn-warning';
+                                        break;
+                                        case 'Very Bad':
+                                        $btn_color = 'btn-danger';
+                                        break;
+                                        default:
+                                        $status_predikat = '';
+                                        }
+                                        @endphp
+
+                                        <label class="btn btn-sm {{ $btn_color }}">{{ $lessoV->predikat }}</label>
+                                    </td>
+                                    <td class="text-center">
+                                        <form method="POST" action="#">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="#" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
+                                            <a href="#" class="text-center edit" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
+                                            <button class="text-center trash" name="delete" value="delete" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
+                                        </form>
+                                    </td>
                                 </tr>
-                        
+                                @php $no++; @endphp
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

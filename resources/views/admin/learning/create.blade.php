@@ -5,7 +5,7 @@
     @if(Auth::user()->role_users == 'admin')
     @include('admin.dashboard.create_learning_admin')
     @else
-    @include('admin.access_denied.access_denied_classroom')
+    @include('admin.access_denied.access_denied_learning')
     @endif
 </div>
 @endsection

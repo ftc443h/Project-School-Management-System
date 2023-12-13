@@ -101,13 +101,13 @@
                                         <img src="{{url('admin/assets/img/profile/')}}/{{$tchr->photo_teacher}}" alt="" width="15%" style="width: 40px;">
                                         @endempty
                                     </td>
-                                    <td class="text-center">{{ $tchr->code_teacher}}</td>
-                                    <td class="text-center">{{ $tchr->name_teacher}}</td>
-                                    <td class="text-center">{{ $tchr->birthday_teacher}}</td>
-                                    <td class="text-center">{{ $tchr->gender_teacher}}</td>
-                                    <td class="text-center">{{ $tchr->email_teacher}}</td>
-                                    <td class="text-center">{{ $tchr->phone_teacher}}</td>
-                                    <td class="text-center">{{ $tchr->address_teacher}}</td>
+                                    <td class="text-center">{{ $tchr->code_teacher }}</td>
+                                    <td class="text-center">{{ $tchr->name_teacher }}</td>
+                                    <td class="text-center">{{ $tchr->birthday_teacher }}</td>
+                                    <td class="text-center">{{ $tchr->gender_teacher }}</td>
+                                    <td class="text-center">{{ $tchr->email_teacher }}</td>
+                                    <td class="text-center">{{ $tchr->phone_teacher }}</td>
+                                    <td class="text-center">{{ $tchr->address_teacher }}</td>
                                     <td class="text-center">
                                         <form method="POST" action="{{ route('teacher.destroy', $tchr->id)}}">
                                             @csrf

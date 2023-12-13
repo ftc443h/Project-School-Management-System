@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="page-wrapper">
-    @if(Auth::user()->role_users != 'teacher')
+    @if(Auth::user()->role_users == 'admin')
     @include('admin.dashboard.lesson_student_admin')
     @else
     <div class="content container-fluid">
@@ -73,15 +73,26 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th class="text-center">No</th>
-                                    <th class="text-center">Photo</th>
                                     <th class="text-center">Student</th>
-                                    <th class="text-center">Date</th>
-                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Lesson</th>
+                                    <th class="text-center">Daily Tasks</th>
+                                    <th class="text-center">UTS</th>
+                                    <th class="text-center">UAS</th>
+                                    <th class="text-center">Grade</th>
+                                    <th class="text-center">Information</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 
                                 <tr>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
                                     <td class="text-center"></td>
                                     <td class="text-center"></td>
                                 </tr>
@@ -93,6 +104,7 @@
             </div>
         </div>
         <!--Row-->
+
     </div>
     @endif
 </div>
