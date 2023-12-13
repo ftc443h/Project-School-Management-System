@@ -9,9 +9,9 @@
             <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
                 <div class="content">
                     <h3>About</h3>
-                    <h2>School Managemnent System</h2>
+                    <h2>School Management System</h2>
                     <p>
-                        Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est corrupti.
+                    Welcome to our School Management System, where efficiency meets quality education. We provide integrated solutions to help your school manage all aspects of operations easily. Providing innovation in the world of education, our School Management System is designed to help educational institutions manage student data, lesson schedules, and school administration in a smarter and more effective way.
                     </p>
                     <div class="text-center text-lg-start">
                         <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
@@ -274,7 +274,7 @@
 
         <header class="section-header">
             <h2>Team</h2>
-            <p>Our team</p>
+            <p>Our School Management System Team</p>
         </header>
 
         <div class="row gy-4">
@@ -293,7 +293,7 @@
                     <div class="member-info">
                         <h4>Fatchan Muhammad Hakim</h4>
                         <span>Leader</span>
-                        <p>"Dalam keberagaman ide dan semangat yang tak tergoyahkan, tim kami adalah pionir yang bersatu demi menciptakan monumen keunggulan. Kita adalah pembangun masa depan pendidikan."</p>
+                        <p>"In our diversity of ideas and unwavering passion, our team is a pioneer united to create a monument of excellence. We are the builders of the future of education."</p>
                     </div>
                 </div>
             </div>
@@ -312,7 +312,7 @@
                     <div class="member-info">
                         <h4>Rani Kurniawati</h4>
                         <span>Member</span>
-                        <p>"Sama seperti puzzle yang indah terbentuk dari kepingan-kepingan yang saling melengkapi, setiap kontribusi dalam tim kami adalah bagian tak tergantikan."</p>
+                        <p>"Just as a beautiful puzzle is formed from pieces that complement each other, every contribution on our team is an irreplaceable piece."</p>
                     </div>
                 </div>
             </div>
@@ -331,7 +331,7 @@
                     <div class="member-info">
                         <h4>Bagas Adi Kurniawan</h4>
                         <span>Member</span>
-                        <p>"Dalam kebersamaan, kita melukis kanvas pendidikan dengan warna-warna inovasi. Setiap anggota tim adalah kuas yang membentuk visi luar biasa."</p>
+                        <p>"In togetherness, we paint the educational canvas with the colors of innovation. Each team member is the brush that creates an extraordinary vision."</p>
                     </div>
                 </div>
             </div>
@@ -350,7 +350,7 @@
                     <div class="member-info">
                         <h4>Dela Septriani</h4>
                         <span>Member</span>
-                        <p>"Dengan tekad yang kuat dan semangat yang membara, kita adalah pembawa perubahan. Setiap baris kode yang kita tulis adalah langkah maju dalam membangun jembatan menuju pendidikan yang lebih baik."</p>
+                        <p>"With strong determination and burning passion, we are the bearers of change. Every line of code we write is a step forward in building a bridge to better education."</p>
                     </div>
                 </div>
             </div>
@@ -369,7 +369,7 @@
                     <div class="member-info">
                         <h4>Satriya Yoga Madhasatya</h4>
                         <span>Member</span>
-                        <p>"Dalam harmoni yang tak tergantikan, kita adalah orkestra yang menyusun simfoni keberhasilan. Setiap individu dalam tim kita adalah pemain yang memberikan kontribusi unik untuk mencapai tujuan bersama."</p>
+                        <p>"In irreplaceable harmony, we are the orchestra that composes a symphony of success. Each individual on our team is a player who makes a unique contribution to achieving a common goal."</p>
                     </div>
                 </div>
             </div>

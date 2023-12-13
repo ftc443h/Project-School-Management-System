@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center">
-            <h1 data-aos="fade-up">School Management System</h1>
-            <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with Bootstrap Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit dolorum ad, accusantium molestiae id rerum dicta, ea ipsam quod cumque ut iure qui cum! Vitae consectetur mollitia fugiat aliquam architecto.</h2>
+            <h1 data-aos="fade-up">Welcome to Preschool Management System!</h1>
+            <h2 data-aos="fade-up" data-aos-delay="400">Our system was created to increase efficiency and enhance the educational experience across our institutions. Discover the educational revolution through technological innovation with our School Management System. We make it easier to manage and improve the quality of learning.</h2>
             <div data-aos="fade-up" data-aos-delay="600">
                 <div class="text-center text-lg-start">
                     <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
