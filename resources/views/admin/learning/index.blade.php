@@ -1,6 +1,11 @@
 @extends('admin.layouts.index')
 @section('content')
+
 <div class="page-wrapper">
+
+    @if(Auth::user()->role_users == 'admin')
+    @include('admin.dashboard.learning_admin')
+    @else
     <div class="content container-fluid">
 
         @if ($message = Session::get('success'))
@@ -68,9 +73,7 @@
             <!-- DataTable with Hover -->
             <div class="col-lg-12">
                 <div class="card mb-4">
-                    <div class="weppr-class container-fluid">
-                        <a class="text-center create" href="{{ route('learning.create') }}" title="Create"><i class="bi bi-plus-circle"></i></a>
-                    </div>
+
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 
                     </div>
@@ -81,7 +84,6 @@
                                     <th class="text-center">No</th>
                                     <th class="text-center">Learning</th>
                                     <th class="text-center">Category</th>
-                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -91,15 +93,6 @@
                                     <td class="text-center">{{ $no }}</td>
                                     <td class="text-center">{{ $learn->learning_class}}</td>
                                     <td class="text-center">{{ $learn->category_class}}</td>
-                                    <td class="text-center">
-                                        <form method="POST" action="{{ route('learning.destroy', $learn->id) }}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <a class="text-center eyes" href="{{ route('learning.show', $learn->id)}}" title="View"><i class="bi bi-eye-fill text-center"></i></a>
-                                            <a class="text-center edit" href="{{ route('learning.edit', $learn->id)}}" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
-                                            <button class="text-center trash" name="delete" value="delete" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
-                                        </form>
-                                    </td>
                                 </tr>
                                 @php $no++; @endphp
                                 @endforeach
@@ -112,6 +105,6 @@
         <!--Row-->
 
     </div>
-    @include('admin.classroom.message')
+    @endif
 </div>
 @endsection

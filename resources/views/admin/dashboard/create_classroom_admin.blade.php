@@ -46,12 +46,12 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="page-title mb-0">Edit Classroom</h3>
+                    <h3 class="page-title mb-0">Create Classroom</h3>
                 </div>
                 <div class="col-md-6">
                     <ul class="breadcrumb mb-0 p-0 float-right">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}"><i class="fas fa-home"></i> Home</a></li>
-                        <li class="breadcrumb-item"><span>Edit Classroom</span></li>
+                        <li class="breadcrumb-item"><span>Create Classroom</span></li>
                     </ul>
                 </div>
             </div>
@@ -61,16 +61,15 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header text-center">
-                        <i class="bi bi-exclude"> <span class="spanCreate"> Welcome To Edit Classroom</span></i>
+                        <i class="bi bi-exclude"> <span class="spanCreate"> Welcome To Classroom</span></i>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('classroom.update', $classroom_edit->id) }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('classroom.store') }}" enctype="multipart/form-data">
                             @csrf
-                            @method('PUT')
                             <div class="form-group row ">
                                 <label class="bi bi-building-fill-add col-form-label col-md-2 LabForm"> Classroom</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="offline_classroom" value="{{$classroom_edit->offline_classroom}}" class="form-control place @error ('offline_classroom') is-invalid @else is-valid @enderror" placeholder="Classroom Input">
+                                    <input type="text" value="{{ old('offline_classroom') }}" name="offline_classroom" class="form-control place @error ('offline_classroom') is-invalid @else is-valid @enderror" placeholder="Classroom Input">
                                     @error('offline_classroom')
                                     <div class="invalid-feedback">
                                         {{$message}}
@@ -81,7 +80,7 @@
                             <div class="form-group row ">
                                 <label class="bi bi-share-fill col-form-label col-md-2 LabForm"> Link Online</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="online_classroom" value="{{$classroom_edit->online_classroom}}" class="form-control place @error ('online_classroom') is-invalid @else is-valid @enderror" placeholder="Meet Link Input">
+                                    <input type="text" value="{{ old('online_classroom') }}" name="online_classroom" class="form-control place @error ('online_classroom') is-invalid @else is-valid @enderror" placeholder="Meet Link Input">
                                     @error('online_classroom')
                                     <div class="invalid-feedback">
                                         {{$message}}
@@ -93,10 +92,10 @@
                                 <label class="bi bi-person-fill-add col-form-label col-md-2 LabForm"> Teacher</label>
                                 <div class="col-md-10">
                                     <select name="tbl_teacher_id" class="form-control @error ('name_teacher') is-invalid @else is-valid @enderror">
-                                        <option class="optins">-- Please Select --</option>
-                                        @foreach($teacher_edit as $TCH)
-                                        @php $opti_teacher = ($TCH->id == $classroom_edit->tbl_teacher_id) ? 'selected' : ''; @endphp
-                                        <option class="optins" value="{{ $TCH->id }}" {{$opti_teacher}}>{{$TCH->name_teacher}}</option>
+                                        <option class="">-- Please Select --</option>
+                                        @foreach($teacher as $teachers)
+                                        @php $sel = ( old('name_teacher')==$teachers['id'] ) ? 'selected' : ''; @endphp
+                                        <option class="optins" value="{{$teachers->id}}" {{$sel}}>{{$teachers->name_teacher}}</option>
                                         @endforeach
                                     </select>
                                     @error('name_teacher')
@@ -110,10 +109,10 @@
                                 <label class="bi bi-person-fill-add col-form-label col-md-2 LabForm"> Student</label>
                                 <div class="col-md-10">
                                     <select name="tbl_student_id" class="form-control @error ('name_student') is-invalid @else is-valid @enderror">
-                                        <option class="optins">-- Please Select --</option>
-                                        @foreach($student_edit as $STD)
-                                        @php $opti_student = ($STD->id == $classroom_edit->tbl_student_id) ? 'selected' : ''; @endphp
-                                        <option class="optins" value="{{ $STD->id }}" {{$opti_student}}>{{$STD->name_student}}</option>
+                                        <option class="">-- Please Select --</option>
+                                        @foreach($student as $students)
+                                        @php $sel = ( old('name_student')==$students['id'] ) ? 'selected' : ''; @endphp
+                                        <option class="optins" value="{{$students->id}}" {{$sel}}>{{$students->name_student}}</option>
                                         @endforeach
                                     </select>
                                     @error('name_student')
@@ -128,12 +127,12 @@
                                 <div class="col-md-10">
                                     <select name="tbl_learning_id" class="form-control @error ('learning_class') is-invalid @else is-valid @enderror">
                                         <option class="">-- Please Select --</option>
-                                        @foreach($learning_edit as $LMS)
-                                        @php $opti_LMS = ($LMS->id == $classroom_edit->tbl_learning_id) ? 'selected' : ''; @endphp
-                                        <option class="optins" value="{{$LMS->id}}" {{$opti_LMS}}>{{$LMS->learning_class}}</option>
+                                        @foreach($learning as $learnings)
+                                        @php $sel = ( old('learning_class')==$learnings['id'] ) ? 'selected' : ''; @endphp
+                                        <option class="optins" value="{{$learnings->id}}" {{$sel}}>{{$learnings->learning_class}}</option>
                                         @endforeach
                                     </select>
-                                    @error('learning_class')
+                                    @error('tbl_learning_id')
                                     <div class="invalid-feedback">
                                         {{$message}}
                                     </div>
@@ -144,10 +143,10 @@
                                 <label class="bi bi-people-fill col-form-label col-md-2 LabForm"> Users</label>
                                 <div class="col-md-10">
                                     <select name="users_id" class="form-control @error ('name') is-invalid @else is-valid @enderror">
-                                        <option class="optins">-- Please Select --</option>
-                                        @foreach($users_edit as $USR)
-                                        @php $opti_users = ($USR->id == $classroom_edit->users_id) ? 'selected' : ''; @endphp
-                                        <option class="optins" value="{{ $USR->id }}" {{$opti_users}}>{{$USR->name}}</option>
+                                        <option class="">-- Please Select --</option>
+                                        @foreach($users as $userss)
+                                        @php $sel = ( old('name')==$userss['id'] ) ? 'selected' : ''; @endphp
+                                        <option class="optins" value="{{$userss->id}}" {{$sel}}>{{$userss->name}}</option>
                                         @endforeach
                                     </select>
                                     @error('name')
@@ -160,7 +159,7 @@
                             <div class="form-group row ">
                                 <label class="bi bi-clock-fill col-form-label col-md-2 LabForm"> Clock Start</label>
                                 <div class="col-md-10">
-                                    <input type="time" name="clock_start" value="{{$classroom_edit->clock_start}}" class="form-control place @error ('clock_start') is-invalid @else is-valid @enderror">
+                                    <input type="time" value="{{ old('clock_start') }}" name="clock_start" class="form-control place @error ('clock_start') is-invalid @else is-valid @enderror">
                                     @error('clock_start')
                                     <div class="invalid-feedback">
                                         {{$message}}
@@ -171,7 +170,7 @@
                             <div class="form-group row ">
                                 <label class="bi bi-clock-fill col-form-label col-md-2 LabForm"> Clock End</label>
                                 <div class="col-md-10">
-                                    <input type="time" name="clock_end" value="{{$classroom_edit->clock_end}}" class="form-control place @error ('clock_end') is-invalid @else is-valid @enderror" placeholder="Meet Link Input">
+                                    <input type="time" value="{{ old('clock_end') }}" name="clock_end" class="form-control place @error ('clock_end') is-invalid @else is-valid @enderror" placeholder="Meet Link Input">
                                     @error('clock_end')
                                     <div class="invalid-feedback">
                                         {{$message}}
@@ -182,7 +181,7 @@
                             <div class="form-group row ">
                                 <label class="bi bi-calendar3 col-form-label col-md-2 LabForm"> Date Start</label>
                                 <div class="col-md-10">
-                                    <input type="date" name="date_start" value="{{$classroom_edit->date_start}}" class="form-control place @error ('date_start') is-invalid @else is-valid @enderror" placeholder="Meet Link Input">
+                                    <input type="date" name="date_start" value="{{ old('date_start') }}" class="form-control place @error ('date_start') is-invalid @else is-valid @enderror">
                                     @error('date_start')
                                     <div class="invalid-feedback">
                                         {{$message}}
@@ -193,7 +192,7 @@
                             <div class="form-group row ">
                                 <label class="bi bi-calendar3 col-form-label col-md-2 LabForm"> Date End</label>
                                 <div class="col-md-10">
-                                    <input type="date" name="date_end" value="{{$classroom_edit->date_end}}" class="form-control place @error ('date_end') is-invalid @else is-valid @enderror" placeholder="Meet Link Input">
+                                    <input type="date" name="date_end" value="{{ old('date_end') }}" class="form-control place @error ('date_end') is-invalid @else is-valid @enderror">
                                     @error('date_end')
                                     <div class="invalid-feedback">
                                         {{$message}}
@@ -201,9 +200,8 @@
                                     @enderror
                                 </div>
                             </div>
-                            <a href="{{ url('/classroom')}}" class="btn btn-danger btp">Cancel</a>
-                            <button type="submit" name="proses" value="simpan" id="simpan" class="btn btn-primary btp">Edit</button>
-                            <input type="hidden" name="id" value="{{$classroom_edit->id}}">
+                            <a href="{{url('/classroom')}}" class="btn btn-danger btp">Cancel</a>
+                            <button type="submit" name="proses" value="simpan" id="simpan" class="btn btn-primary btp">Create</button>
                         </form>
                     </div>
                 </div>

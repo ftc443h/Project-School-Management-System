@@ -41,16 +41,15 @@
                 </div>
             </div>
         </div>
+
         <div class="page-header">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                    <h5 class="text-uppercase mb-0 mt-0 page-title">View Classroom</h5>
+                <div class="col-md-6">
+                    <h3 class="page-title mb-0">View Classroom</h3>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                    <ul class="breadcrumb float-right p-0 mb-0">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i> Home</a>
-                        </li>
-                        <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                <div class="col-md-6">
+                    <ul class="breadcrumb mb-0 p-0 float-right">
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}"><i class="fas fa-home"></i> Home</a></li>
                         <li class="breadcrumb-item"><span>View Classroom</span></li>
                     </ul>
                 </div>

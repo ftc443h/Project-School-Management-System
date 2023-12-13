@@ -1,6 +1,5 @@
 @extends('admin.layouts.index')
 @section('content')
-
 <div class="page-wrapper">
     <div class="content container-fluid">
 
@@ -52,12 +51,12 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="page-title mb-0">Presence Teacher</h3>
+                    <h3 class="page-title mb-0">Lesson</h3>
                 </div>
                 <div class="col-md-6">
                     <ul class="breadcrumb mb-0 p-0 float-right">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}"><i class="fas fa-home"></i> Home</a></li>
-                        <li class="breadcrumb-item"><span>Presence Teacher</span></li>
+                        <li class="breadcrumb-item"><span>Lesson</span></li>
                     </ul>
                 </div>
             </div>
@@ -69,7 +68,7 @@
             <div class="col-lg-12">
                 <div class="card mb-4">
                     <div class="weppr-class container-fluid">
-                        <a class="text-center create" href="{{ route('presence_tc.create') }}" title="Create"><i class="bi bi-plus-circle"></i></a>
+                        <a class="text-center create" href="{{ route('learning.create') }}" title="Create"><i class="bi bi-plus-circle"></i></a>
                     </div>
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 
@@ -79,55 +78,24 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th class="text-center">No</th>
-                                    <th class="text-center">Photo</th>
-                                    <th class="text-center">Name</th>
-                                    <th class="text-center">Date</th>
-                                    <th class="text-center">Status Presence</th>
+                                    <th class="text-center">Learning</th>
+                                    <th class="text-center">Category</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php $no = 1; @endphp
-                                @foreach($presensi_t as $presensiteacher)
+                                @foreach($learning as $learn)
                                 <tr>
-                                    <td class="text-center">{{$no}}</td>
+                                    <td class="text-center">{{ $no }}</td>
+                                    <td class="text-center">{{ $learn->learning_class}}</td>
+                                    <td class="text-center">{{ $learn->category_class}}</td>
                                     <td class="text-center">
-                                        @empty($presensiteacher->photoT)
-                                        <img src="{{url('admin/assets/img/profile/notprofileimages.png')}}" alt="" width="15%" style="width: 50px;">
-                                        @else
-                                        <img src="{{url('admin/assets/img/profile/')}}/{{$presensiteacher->photoT}}" alt="" width="15%" style="width: 40px;">
-                                        @endempty
-                                    </td>
-                                    <td class="text-center">{{$presensiteacher->teacher}}</td>
-                                    <td class="text-center">{{$presensiteacher->date_teac}}</td>
-                                    <td class="text-center">
-                                        <!-- Kondisi Merubah Warna Otomatis Sesuai Status Presence Teacher -->
-                                        @php
-                                        $status_Present = $presensiteacher->status_teac;
-                                        $btn_color = '';
-
-                                        switch ($status_Present){
-                                        case 'Present';
-                                        $btn_color = 'btn-success';
-                                        break;
-                                        case 'Presence Permissions';
-                                        $btn_color = 'btn-info';
-                                        break;
-                                        case 'Not Present':
-                                        $btn_color = 'btn-danger';
-                                        break;
-                                        default:
-                                        $status_Present = '';
-                                        }
-                                        @endphp
-                                        <label class="btn btn-sm {{ $btn_color }}">{{$presensiteacher->status_teac}}</label>
-                                    </td>
-                                    <td class="text-center">
-                                        <form method="POST" action="{{ route('presence_tc.destroy', $presensiteacher->id)}}">
+                                        <form method="POST" action="{{ route('learning.destroy', $learn->id) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <a href="{{ route('presence_tc.show', $presensiteacher->id) }}" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
-                                            <a class="text-center edit" href="{{ route('presence_tc.edit', $presensiteacher->id)}}" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
+                                            <a class="text-center eyes" href="{{ route('learning.show', $learn->id)}}" title="View"><i class="bi bi-eye-fill text-center"></i></a>
+                                            <a class="text-center edit" href="{{ route('learning.edit', $learn->id)}}" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
                                             <button class="text-center trash" name="delete" value="delete" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
                                         </form>
                                     </td>
@@ -141,6 +109,7 @@
             </div>
         </div>
         <!--Row-->
+
     </div>
     @include('admin.classroom.message')
 </div>

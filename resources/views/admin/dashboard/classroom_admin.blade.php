@@ -31,11 +31,11 @@
             </div>
             <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                 <div class="dash-widget dash-widget5">
-                    <div class="dash-widget-info text-left d-inline-block">
+                    <span class="float-left"><img src="{{ asset('admin/assets/img/dash/dash-2.png') }}" alt="" width="80"></span>
+                    <div class="dash-widget-info text-right">
                         <span>Classroom</span>
                         <h3>{{ $classroomCount }}</h3>
                     </div>
-                    <span class="float-right"><img src="{{ asset('admin/assets/img/dash/dash-2.png') }}" width="80" alt=""></span>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
@@ -52,12 +52,12 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="page-title mb-0">Presence Teacher</h3>
+                    <h3 class="page-title mb-0">Classroom</h3>
                 </div>
                 <div class="col-md-6">
                     <ul class="breadcrumb mb-0 p-0 float-right">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}"><i class="fas fa-home"></i> Home</a></li>
-                        <li class="breadcrumb-item"><span>Presence Teacher</span></li>
+                        <li class="breadcrumb-item"><span>Classroom</span></li>
                     </ul>
                 </div>
             </div>
@@ -69,7 +69,7 @@
             <div class="col-lg-12">
                 <div class="card mb-4">
                     <div class="weppr-class container-fluid">
-                        <a class="text-center create" href="{{ route('presence_tc.create') }}" title="Create"><i class="bi bi-plus-circle"></i></a>
+                        <a class="text-center create" href="{{ route('classroom.create') }}" title="Create"><i class="bi bi-plus-circle"></i></a>
                     </div>
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 
@@ -77,58 +77,58 @@
                     <div class="table-responsive p-3">
                         <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                             <thead class="thead-light">
+
                                 <tr>
                                     <th class="text-center">No</th>
-                                    <th class="text-center">Photo</th>
-                                    <th class="text-center">Name</th>
-                                    <th class="text-center">Date</th>
-                                    <th class="text-center">Status Presence</th>
+                                    <th class="text-center">Student</th>
+                                    <th class="text-center">Class Offline</th>
+                                    <th class="text-center">Class Online</th>
+                                    <th class="text-center">Teacher</th>
+                                    <th class="text-center">Learning</th>
+                                    <th class="text-center">Clock Start</th>
+                                    <th class="text-center">Clock End</th>
+                                    <th class="text-center">Date Start</th>
+                                    <th class="text-center">Date End</th>
+                                    <th class="text-center">Status</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php $no = 1; @endphp
-                                @foreach($presensi_t as $presensiteacher)
+                                @foreach($classroom as $class)
                                 <tr>
                                     <td class="text-center">{{$no}}</td>
+                                    <td class="text-center">{{$class->student}}</td>
+                                    <td class="text-center">{{$class->offline_classroom}}</td>
+                                    <td class="text-center">{{$class->online_classroom}}</td>
+                                    <td class="text-center">{{$class->teacher}}</td>
+                                    <td class="text-center">{{$class->learning}}</td>
+                                    <td class="text-center">{{$class->clock_start}}</td>
+                                    <td class="text-center">{{$class->clock_end}}</td>
+                                    <td class="text-center">{{$class->date_start}}</td>
+                                    <td class="text-center">{{$class->date_end}}</td>
+                                    @php
+                                    if(now()->lessThan($class->clock_start)){
+                                    $status = 'Will Start';
+                                    $bg_color = 'bg-warning';
+                                    }elseif(now()->between($class->clock_start, $class->clock_end, $class->date_end)){
+                                    $status = 'Underway';
+                                    $bg_color = 'bg-success';
+                                    }else{
+                                    $status = 'Has Ended';
+                                    $bg_color = 'bg-danger';
+                                    }
+                                    @endphp
                                     <td class="text-center">
-                                        @empty($presensiteacher->photoT)
-                                        <img src="{{url('admin/assets/img/profile/notprofileimages.png')}}" alt="" width="15%" style="width: 50px;">
-                                        @else
-                                        <img src="{{url('admin/assets/img/profile/')}}/{{$presensiteacher->photoT}}" alt="" width="15%" style="width: 40px;">
-                                        @endempty
-                                    </td>
-                                    <td class="text-center">{{$presensiteacher->teacher}}</td>
-                                    <td class="text-center">{{$presensiteacher->date_teac}}</td>
-                                    <td class="text-center">
-                                        <!-- Kondisi Merubah Warna Otomatis Sesuai Status Presence Teacher -->
-                                        @php
-                                        $status_Present = $presensiteacher->status_teac;
-                                        $btn_color = '';
-
-                                        switch ($status_Present){
-                                        case 'Present';
-                                        $btn_color = 'btn-success';
-                                        break;
-                                        case 'Presence Permissions';
-                                        $btn_color = 'btn-info';
-                                        break;
-                                        case 'Not Present':
-                                        $btn_color = 'btn-danger';
-                                        break;
-                                        default:
-                                        $status_Present = '';
-                                        }
-                                        @endphp
-                                        <label class="btn btn-sm {{ $btn_color }}">{{$presensiteacher->status_teac}}</label>
+                                        <span class="badge text-center text-white {{$bg_color}} rounded-3 fw-semibold">{{$status}}</span>
                                     </td>
                                     <td class="text-center">
-                                        <form method="POST" action="{{ route('presence_tc.destroy', $presensiteacher->id)}}">
+                                        <form method="POST" action="{{ route('classroom.destroy', $class->id) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <a href="{{ route('presence_tc.show', $presensiteacher->id) }}" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
-                                            <a class="text-center edit" href="{{ route('presence_tc.edit', $presensiteacher->id)}}" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
-                                            <button class="text-center trash" name="delete" value="delete" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
+                                            <a class="text-center eyes" href="{{ route('classroom.show', $class->id) }}" title="view"><i class="bi bi-eye-fill" aria-hidden="true"></i></a>
+                                            <a class="text-center edit" href="{{ route('classroom.edit', $class->id) }}" title="Edit"><i class="bi bi-pencil-square" aria-hidden="true"></i></a>
+                                            <button class="text-center trash" type="submit" name="delete" value="delete" title="Trash"><i class="bi bi-trash3" aria-hidden="true"></i></button>
                                         </form>
                                     </td>
                                 </tr>
@@ -141,6 +141,7 @@
             </div>
         </div>
         <!--Row-->
+
     </div>
     @include('admin.classroom.message')
 </div>
