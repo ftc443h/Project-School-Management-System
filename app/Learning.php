@@ -18,4 +18,9 @@ class Learning extends Model
     {
         return $this->hasMany('App\Classroom');
     }
+
+    public function tbl_grade()
+    {
+        return $this->hasMany('App\Lesson');
+    }
 }

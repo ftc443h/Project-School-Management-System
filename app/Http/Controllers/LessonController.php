@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Lesson;
+use App\Teacher;
+use App\Learning;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LessonController extends Controller
 {
@@ -14,7 +17,13 @@ class LessonController extends Controller
      */
     public function index()
     {
-        $lessonValue = Lesson::all();
+        $lessonValue = DB::table('tbl_grade')
+            ->join('tbl_student', 'tbl_student.id', '=', 'tbl_grade.tbl_student_id')
+            ->join('tbl_learning', 'tbl_learning.id', '=', 'tbl_grade.tbl_learning_id')
+            ->select('tbl_grade.*', 'tbl_learning.learning_class as learning', 'tbl_student.name_student as student')
+            ->get();
+
+        return view('admin.lesson_value.index', compact('lessonValue'));
     }
 
     /**

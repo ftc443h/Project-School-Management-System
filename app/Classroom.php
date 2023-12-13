@@ -31,10 +31,12 @@ class Classroom extends Model
     {
         return $this->belongsTo('App\Student');
     }
+
     public function tbl_learning()
     {
         return $this->belongsTo('App\Learning');
     }
+    
     public function users()
     {
         return $this->belongsTo('App\Users');

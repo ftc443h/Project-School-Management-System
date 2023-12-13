@@ -10,6 +10,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PresenceSController;
 use App\Http\Controllers\PresenceTController;
+use App\Http\Controllers\LessonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,7 @@ Route::get('/login', function () {
 
 /* Route Get Sudah Terhubung Ke Dalam Controller */
 Route::get('dashboard', [DashboardController::class], 'index')->middleware('auth');
+Route::get('lesson_value', [LessonController::class], 'index')->middleware('auth');
 Route::get('classroom', [ClassroomController::class], 'index')->middleware('auth');
 Route::get('learning', [LearningController::class], 'index')->middleware('auth');
 Route::get('presence_st', [PresenceSController::class], 'index')->middleware('auth');
@@ -46,6 +48,7 @@ Route::get('users', [UserController::class], 'index')->middleware('auth');
 
 /* Route Resource Sudah Terhubung Ke Dalam Database */
 Route::resource('dashboard', 'DashboardController')->middleware('auth');
+Route::resource('lesson_value', 'LessonController')->middleware('auth');
 Route::resource('classroom', 'ClassroomController')->middleware('auth');
 Route::resource('learning', 'LearningController')->middleware('auth');
 Route::resource('presence_st', 'PresencesController')->middleware('auth');

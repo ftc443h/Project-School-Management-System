@@ -29,4 +29,9 @@ class Student extends Model
     {
         return $this->hasMany('App\PresenceS');
     }
+
+    public function tbl_grade()
+    {
+        return $this->hasMany('App\Lesson');
+    }
 }
