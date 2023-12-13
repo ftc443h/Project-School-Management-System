@@ -86,6 +86,7 @@
                                     <th class="text-center">Final Score</th>
                                     <th class="text-center">Grade</th>
                                     <th class="text-center">Predikat</th>
+                                    <th class="text-center">Status</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -101,34 +102,26 @@
                                     <td class="text-center">{{ $lessoV->uas_grade }}</td>
                                     <td class="text-center">{{ $lessoV->average_grade }}</td>
                                     <td class="text-center">{{ $lessoV->grade }}</td>
+                                    <td class="text-center">{{ $lessoV->predikat }}</td>
                                     <td class="text-center">
 
                                         @php
-                                        $status_predikat = $lessoV->predikat;
+                                        $status_ketvalue = $lessoV->ketnilai;
                                         $btn_color = '';
 
-                                        switch ($status_predikat){
-                                        case 'Very Good';
+                                        switch ($status_ketvalue){
+                                        case 'Graduate';
                                         $btn_color = 'btn-success';
                                         break;
-                                        case 'Good';
-                                        $btn_color = 'btn-info';
-                                        break;
-                                        case 'Enough':
-                                        $btn_color = 'btn-secondary';
-                                        break;
-                                        case 'Bad':
-                                        $btn_color = 'btn-warning';
-                                        break;
-                                        case 'Very Bad':
+                                        case 'Not Pass':
                                         $btn_color = 'btn-danger';
                                         break;
                                         default:
-                                        $status_predikat = '';
+                                        $status_ketvalue = '';
                                         }
                                         @endphp
 
-                                        <label class="btn btn-sm {{ $btn_color }}">{{ $lessoV->predikat }}</label>
+                                        <label class="btn btn-sm {{ $btn_color }}">{{ $lessoV->ketnilai }}</label>
                                     </td>
                                     <td class="text-center">
                                         <form method="POST" action="#">

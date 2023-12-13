@@ -28,7 +28,7 @@ class LessonController extends Controller
 
             foreach ($lessonValue as $value) {
                 $value->average_grade = ($value->dailytasks_grade + $value->uts_grade + $value->uas_grade) / 3;
-                $ket_nilai = ($value->average_grade >= 60) ? 'Lulus' : 'Tidak Lulus';
+                $ketnilai = ($value->average_grade >= 60) ? 'Graduate' : 'Not Pass';
         
                 if ($value->average_grade >= 86 && $value->average_grade <= 100) {
                     $grade = 'A';
@@ -66,6 +66,7 @@ class LessonController extends Controller
         
                 $value->grade = $grade;
                 $value->predikat = $predikat;
+                $value->ketnilai = $ketnilai;
             };
             
         $lessonValueCount = $lessonValue->count();
