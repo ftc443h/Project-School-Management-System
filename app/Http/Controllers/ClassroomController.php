@@ -9,6 +9,7 @@ use App\Learning;
 use App\Student;
 use App\Teacher;
 use App\User;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Database\Eloquent\Model;
 
 class ClassroomController extends Controller
@@ -218,5 +219,13 @@ class ClassroomController extends Controller
         $classroom_delete = Classroom::find($id);
         Classroom::where('id', $id)->delete();
         return redirect()->route('classroom.index')->with('success', 'Success Delete Data Classroom');
+    }
+
+    public function generatePDF(){
+
+        $classroom = Classroom::all();
+
+        $surat_perPDF = PDF::loadView('admin.classroom.pdf.surat_perizinan', $classroom);
+        return $surat_perPDF->download('surat_perizinan.pdf');
     }
 }

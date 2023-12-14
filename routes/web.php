@@ -1,5 +1,6 @@
 <?php
 
+use App\Classroom;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassroomController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PresenceSController;
 use App\Http\Controllers\PresenceTController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\PdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,3 +61,6 @@ Route::resource('users', 'UserController')->middleware('auth');
 
 /* Auth Routes Login */
 Auth::routes();
+
+/* Route PDF */
+Route::get('surat_perizinan', [ClassroomController::class, 'generatePDF'])->middleware('auth');

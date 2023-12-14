@@ -71,6 +71,9 @@
                     <div class="weppr-class container-fluid">
                         <a class="text-center create" href="{{ route('classroom.create') }}" title="Create"><i class="bi bi-plus-circle"></i></a>
                     </div>
+                    <div class="weppr-pdf container-fluid">
+                        <a class="text-center PDF" href="{{ url('/surat_perizinan') }}" title="Permit Letter"><i class="bi bi-file-earmark-pdf"></i></a>
+                    </div>
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 
                     </div>

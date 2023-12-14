@@ -8431,6 +8431,33 @@ li a:hover {
     text-align: right;
 }
 
+.weppr-pdf {
+    text-align: right;
+    margin-top: -35px;
+    margin-left: -50px;
+}
+
+.PDF {
+    font-size: 24px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #150E56;
+    border-radius: 6px;
+    color: #8FD6E1;
+    transition: ease-in-out 6s;
+}
+
+.create:hover {
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+    padding: 10px;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    color: #EDEDED;
+}
+
 .create {
     font-size: 24px;
     padding: 10px;
@@ -8682,34 +8709,34 @@ li a:hover {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.clasView{
+.clasView {
     font-size: 15px;
     font-weight: bold;
     text-transform: uppercase;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.previewT{
+.previewT {
     font-size: 15px;
     font-weight: bold;
     text-transform: uppercase;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.rowViewT{
+.rowViewT {
     font-size: 13px;
     font-weight: bold;
     text-transform: uppercase;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.CodViewT{
+.CodViewT {
     font-size: 13px;
     font-weight: bold;
     text-transform: uppercase;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.iclearn{
+.iclearn {
     color: #00b871;
 }
