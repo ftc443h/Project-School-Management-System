@@ -1,65 +1,95 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<head>
+    <meta charset="utf-8">
+    <title>Preeschool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
-                        @csrf
+    <!-- Style CSS Template -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin/assets/img/favicon.png') }}">
+    <link href="../../../../css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/plugins/fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/plugins/fontawesome/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/fullcalendar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/plugins/morris/morris.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/view.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/plugins/c3-chart/c3.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/plugins/datetimepicker/css/tempusdominus-bootstrap-4.min.css') }}">
 
-                        <input type="hidden" name="token" value="{{ $token }}">
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+</head>
 
-                            <div class="col-md-6">
+<body>
+    <div class="main-wrapper">
+        <div class="account-page">
+            <div class="container">
+            <h3 class="account-title text-white">Reset Password</h3>
+                <div class="account-box">
+                    <div class="account-wrapper">
+                        <div class="account-logo">
+                            <a href="{{ url('/') }}"><img src="{{ asset('admin/assets/img/logo.png') }}" alt="school-admin"></a>
+                        </div>
+                        <form method="POST" action="{{ route('password.update') }}">
+                            @csrf
+
+                            <input type="hidden" name="token" value="{{ $token }}">
+
+                            <div class="form-group">
+                                <label>Email</label>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
-
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
+                            <div class="form-group">
+                                <label>New Password</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Confirm Password</label>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
+                            <div class="form-group text-center custom-mt-form-group">
+                                <button class="btn btn-primary btn-block account-btn" type="submit">Reset Password</button>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+
+    <!-- JavaScript External Template -->
+    <script src="{{ asset('admin/assets/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/jquery.slimscroll.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/select2.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/moment.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/jquery.fullcalendar.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/morris/morris.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/raphael/raphael-min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/apexcharts.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/chart-data.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/datetimepicker/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/app.js') }}"></script>
+
+    <!-- JavaScript Database External Template -->
+    <script src="{{ asset('admin/assets/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/dataTables.bootstrap4.min.js') }}"></script>
+
+</body>
+</html>

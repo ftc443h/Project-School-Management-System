@@ -32,6 +32,13 @@ class ResetPasswordController extends Controller
      *
      * @return void
      */
+    public function redirectTo(){
+        return route('dashboard.index',[
+        'active' => 'dashboard',
+        ]);
+    }
+
+
     public function __construct()
     {
         $this->middleware('guest');

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
-    <title>Preschool - Bootstrap Admin Template</title>
+    <title>Preeschool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
     <!-- Style CSS Template -->
@@ -21,39 +22,19 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/assets/plugins/datetimepicker/css/tempusdominus-bootstrap-4.min.css') }}">
 
+
 </head>
 
 <body>
+
     <div class="main-wrapper">
-        <div class="account-page">
-            <div class="container">
-            <h3 class="account-title text-white">Forgot Password</h3>
-                <div class="account-box">
-                    <div class="account-wrapper">
-                        <div class="account-logo">
-                            <a href="index.html"><img src="assets/img/logo.png" alt="school-admin"></a>
-                        </div>
-                        <form>
-                            @csrf
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="form-group text-center custom-mt-form-group">
-                                <button class="btn btn-primary btn-block account-btn" type="submit">Reset Password</button>
-                            </div>
-                            <div class="text-center">
-                                <a href="login.html">Back to Login</a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+    @yield('content')
+
     </div>
 
-    <!-- JavaScript External Template -->
-    <script src="{{ asset('admin/assets/js/jquery-3.6.0.min.js') }}"></script>
+ <!-- JavaScript External Template -->
+ <script src="{{ asset('admin/assets/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/jquery.slimscroll.js') }}"></script>
     <script src="{{ asset('admin/assets/js/select2.min.js') }}"></script>
@@ -72,4 +53,5 @@
     <script src="{{ asset('admin/assets/js/dataTables.bootstrap4.min.js') }}"></script>
 
 </body>
+
 </html>

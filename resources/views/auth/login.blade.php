@@ -60,7 +60,7 @@
                                 <button class="btn btn-primary btn-block account-btn" type="submit">Login</button>
                             </div>
                             <div class="text-center">
-                                <a href="{{ route('register') }}">Forgot your password?</a>
+                                <a href="{{ route('password.request') }}">Forgot your password?</a>
                             </div>
                             <div class="text-center mt-3">
                                 <div><a href="{{ route('register') }}">Register</a>
