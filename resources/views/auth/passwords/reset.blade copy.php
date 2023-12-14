@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <title>Preeschool</title>
+    <title>Preschool - Bootstrap Admin Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
     <!-- Style CSS Template -->
@@ -22,49 +21,30 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/assets/plugins/datetimepicker/css/tempusdominus-bootstrap-4.min.css') }}">
 
-
 </head>
 
 <body>
-
     <div class="main-wrapper">
         <div class="account-page">
             <div class="container">
+            <h3 class="account-title text-white">Forgot Password</h3>
                 <div class="account-box">
                     <div class="account-wrapper">
-                        
                         <div class="account-logo">
-                            <a href="{{ url('/') }}"><img src="{{ asset('admin/assets/img/logo.png') }}" alt="SchoolAdmin"></a>
+                            <a href="index.html"><img src="assets/img/logo.png" alt="school-admin"></a>
                         </div>
-                        <form method="POST" action="{{ route('login') }}">
+                        <form>
                             @csrf
                             <div class="form-group">
                                 <label>Email</label>
-                                <input name="email" type="text" value="{{ old('email') }}" class="form-control @error ('email') is-invalid @else is-valid @enderror">
-                                @error('email')
-                                <div class="invalid-feedback">
-                                    {{$message}}
-                                </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input name="password" value="{{ old('password') }}" type="password" class="form-control @error ('password') is-invalid @else is-valid @enderror">
-                                @error('password')
-                                <div class="invalid-feedback">
-                                    {{$message}}
-                                </div>
-                                @enderror
+                                <input type="text" class="form-control">
                             </div>
                             <div class="form-group text-center custom-mt-form-group">
-                                <button class="btn btn-primary btn-block account-btn" type="submit">Login</button>
+                                <button class="btn btn-primary btn-block account-btn" type="submit">Reset Password</button>
                             </div>
                             <div class="text-center">
-                                <a href="{{ route('register') }}">Forgot your password?</a>
+                                <a href="login.html">Back to Login</a>
                             </div>
-                            <div class="text-center mt-3">
-                                <div><a href="{{ route('register') }}">Register</a>
-                                </div>
                         </form>
                     </div>
                 </div>
@@ -92,5 +72,4 @@
     <script src="{{ asset('admin/assets/js/dataTables.bootstrap4.min.js') }}"></script>
 
 </body>
-
 </html>

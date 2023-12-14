@@ -29,7 +29,9 @@ class ClassroomController extends Controller
             ->get();
 
         $classroomCount = $classroom->count();
-        return view('admin.classroom.index', compact('classroom', 'classroomCount'));
+        return view('admin.classroom.index', compact('classroom', 'classroomCount'),[
+            'active' => 'classroom',
+        ]);
     }
 
     /**
@@ -45,7 +47,9 @@ class ClassroomController extends Controller
         $learning = Learning::all();
         $users = User::all();
         $classroom_create = Classroom::all();
-        return view('admin.classroom.create', compact('classroom_create', 'teacher', 'student', 'learning', 'users'));
+        return view('admin.classroom.create', compact('classroom_create', 'teacher', 'student', 'learning', 'users'),[
+            'active' => 'classroom',
+        ]);
     }
 
     /**
@@ -120,7 +124,9 @@ class ClassroomController extends Controller
         $learning_shw = Learning::all();
         $classroom_view = Classroom::find($id);
         $classroomCount = $classroom_view->count();
-        return view('admin.classroom.view', compact('classroom_view', 'classroomCount', 'teacher_shw', 'student_shw', 'learning_shw'));
+        return view('admin.classroom.view', compact('classroom_view', 'classroomCount', 'teacher_shw', 'student_shw', 'learning_shw'),[
+            'active' => 'classroom',
+        ]);
     }
 
     /**
@@ -137,7 +143,9 @@ class ClassroomController extends Controller
         $learning_edit = Learning::all();
         $users_edit = User::all();
         $classroom_edit = Classroom::find($id);
-        return view('admin.classroom.edit', compact('classroom_edit', 'teacher_edit', 'student_edit', 'learning_edit', 'users_edit'));
+        return view('admin.classroom.edit', compact('classroom_edit', 'teacher_edit', 'student_edit', 'learning_edit', 'users_edit'),[
+            'active' => 'classroom',
+        ]);
     }
 
     /**

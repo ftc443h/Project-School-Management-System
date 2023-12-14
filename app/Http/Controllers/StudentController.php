@@ -16,7 +16,9 @@ class StudentController extends Controller
     {
         $student = Student::all();
         $studentCount = $student->count();
-        return view('admin.student.index', compact('student', 'studentCount'));
+        return view('admin.student.index', compact('student', 'studentCount'),[
+            'active' => 'student',
+        ]);
     }
 
     /**
@@ -27,7 +29,9 @@ class StudentController extends Controller
     public function create()
     {
         $student_create = Student::all();
-        return view('admin.student.create', compact('student_create'));
+        return view('admin.student.create', compact('student_create'),[
+            'active' => 'student',
+        ]);
     }
 
     /**
@@ -99,7 +103,9 @@ class StudentController extends Controller
     public function show($id)
     {
         $student_view = Student::find($id);
-        return view('admin.student.view', compact('student_view'));
+        return view('admin.student.view', compact('student_view'),[
+            'active' => 'student',
+        ]);
     }
 
     /**
@@ -111,7 +117,9 @@ class StudentController extends Controller
     public function edit($id)
     {
         $student_edit = Student::find($id);
-        return view('admin.student.edit', compact('student_edit'));
+        return view('admin.student.edit', compact('student_edit'),[
+            'active' => 'student',
+        ]);
     }
 
     /**

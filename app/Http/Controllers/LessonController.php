@@ -77,7 +77,9 @@ class LessonController extends Controller
         };
 
         $lessonValueCount = $lessonValue->count();
-        return view('admin.lesson_value.index', compact('lessonValue', 'lessonValueCount'));
+        return view('admin.lesson_value.index', compact('lessonValue', 'lessonValueCount'),[
+            'active' => 'lesson',
+        ]);
     }
 
     /**
@@ -91,7 +93,9 @@ class LessonController extends Controller
         $learning_creatt = Learning::all();
         $lessonVa_creat = Lesson::all();
 
-        return view('admin.lesson_value.create', compact('studendt_creat', 'lessonVa_creat', 'learning_creatt'));
+        return view('admin.lesson_value.create', compact('studendt_creat', 'lessonVa_creat', 'learning_creatt'),[
+            'active' => 'lesson',
+        ]);
     }
 
     /**
@@ -144,7 +148,9 @@ class LessonController extends Controller
         $studeview_Val = Student::all();
         $lesson_View = Lesson::find($id);
 
-        return view('admin.lesson_value.view', compact('studeview_Val', 'lesson_View'));
+        return view('admin.lesson_value.view', compact('studeview_Val', 'lesson_View'),[
+            'active' => 'lesson',
+        ]);
     }
 
     /**
@@ -159,7 +165,9 @@ class LessonController extends Controller
         $lear_Edit = Learning::all();
         $lesson_Edit = Lesson::find($id);
 
-        return view('admin.lesson_value.edit', compact('Std_Edit', 'lesson_Edit', 'lear_Edit'));
+        return view('admin.lesson_value.edit', compact('Std_Edit', 'lesson_Edit', 'lear_Edit'),[
+            'active' => 'lesson',
+        ]);
     }
 
     /**

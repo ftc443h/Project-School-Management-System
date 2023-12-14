@@ -23,7 +23,9 @@ class PresenceSController extends Controller
             ->get();
 
         $presensi_sCount = $presensi_s->count();
-        return view('admin.presence_st.index', compact('presensi_s', 'presensi_sCount'));
+        return view('admin.presence_st.index', compact('presensi_s', 'presensi_sCount'),[
+            'active' => 'student',
+        ]);
     }
 
     /**
@@ -35,7 +37,9 @@ class PresenceSController extends Controller
     {
         $student_Crea = Student::all();
         $presensi_create = PresenceS::all();
-        return view('admin.presence_st.create', compact('presensi_create', 'student_Crea'));
+        return view('admin.presence_st.create', compact('presensi_create', 'student_Crea'),[
+            'active' => 'student',
+        ]);
     }
 
     /**
@@ -80,7 +84,9 @@ class PresenceSController extends Controller
         $student_SView = Student::all();
         $presensist_view = PresenceS::find($id);
 
-        return view('admin.presence_st.view', compact('presensist_view', 'student_SView'));
+        return view('admin.presence_st.view', compact('presensist_view', 'student_SView'),[
+            'active' => 'student',
+        ]);
     }
 
     /**
@@ -94,7 +100,9 @@ class PresenceSController extends Controller
         $presence_Sedit = PresenceS::find($id);
         $student_Sedit = Student::all();
 
-        return view('admin.presence_st.edit', compact('presence_Sedit', 'student_Sedit'));
+        return view('admin.presence_st.edit', compact('presence_Sedit', 'student_Sedit'),[
+            'active' => 'student',
+        ]);
     }
 
     /**

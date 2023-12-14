@@ -24,7 +24,9 @@ class PresenceTController extends Controller
             ->get();
         
         $presensi_tCount = $presensi_t->count();
-        return view('admin.presence_tc.index', compact('presensi_t', 'presensi_tCount'));
+        return view('admin.presence_tc.index', compact('presensi_t', 'presensi_tCount'),[
+            'active' => 'teacher',
+        ]);
     }
 
     /**
@@ -37,7 +39,9 @@ class PresenceTController extends Controller
         /* Create Presence & Teacher */
         $teacher_cre = Teacher::all();
         $presence_Tcreate = PresenceT::all();
-        return view('admin.presence_tc.create', compact('presence_Tcreate', 'teacher_cre'));
+        return view('admin.presence_tc.create', compact('presence_Tcreate', 'teacher_cre'),[
+            'active' => 'teacher',
+        ]);
     }
 
     /**
@@ -82,7 +86,9 @@ class PresenceTController extends Controller
     {
         $teacher_ShView = Teacher::all();
         $presens_view = PresenceT::find($id);
-        return view('admin.presence_tc.view', compact('presens_view', 'teacher_ShView'));
+        return view('admin.presence_tc.view', compact('presens_view', 'teacher_ShView'),[
+            'active' => 'teacher',
+        ]);
     }
 
     /**

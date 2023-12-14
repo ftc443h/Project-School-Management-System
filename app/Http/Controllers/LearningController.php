@@ -18,7 +18,9 @@ class LearningController extends Controller
         /* Connect Database Learning ALL */
         $learning = Learning::all();
         $learningCount = $learning->count();
-        return view('admin.learning.index', compact('learning', 'learningCount'));
+        return view('admin.learning.index', compact('learning', 'learningCount'),[
+            'active' => 'learning',
+        ]);
     }
 
     /**
@@ -30,7 +32,9 @@ class LearningController extends Controller
     {
         /* Run Create Learning */
         $learning_create = Learning::all();
-        return view('admin.learning.create', compact('learning_create'));
+        return view('admin.learning.create', compact('learning_create'),[
+            'active' => 'learning',
+        ]);
     }
 
     /**
@@ -76,7 +80,9 @@ class LearningController extends Controller
         $learning_view = Learning::find($id);
         $learningCount = $learning_view->count();
         $classroomCount = $learning_view->count();
-        return view('admin.learning.view', compact('learning_view', 'classroomCount', 'learningCount'));
+        return view('admin.learning.view', compact('learning_view', 'classroomCount', 'learningCount'),[
+            'active' => 'learning',
+        ]);
     }
 
     /**
@@ -88,7 +94,9 @@ class LearningController extends Controller
     public function edit($id)
     {
         $learning_edit = Learning::find($id);
-        return view('admin.learning.edit', compact('learning_edit'));
+        return view('admin.learning.edit', compact('learning_edit'),[
+            'active' => 'learning',
+        ]);
     }
 
     /**

@@ -18,7 +18,9 @@ class TeacherController extends Controller
         /* Connect All Database */
         $teacher = Teacher::all();
         $teacherCount = $teacher->count();
-        return view('admin.teacher.index', compact('teacher', 'teacherCount'));
+        return view('admin.teacher.index', compact('teacher', 'teacherCount'),[
+            'active' => 'teacher',
+        ]);
 
     }
    
@@ -31,7 +33,9 @@ class TeacherController extends Controller
     {
         /* Run Create Teacher */
         $teacher_create = Teacher::all();
-        return view('admin.teacher.create', compact('teacher_create'));
+        return view('admin.teacher.create', compact('teacher_create'),[
+            'active' => 'teacher',
+        ]);
     }
 
     /**
@@ -104,7 +108,9 @@ class TeacherController extends Controller
     public function show($id)
     {
         $teacher_view = Teacher::find($id);
-        return view('admin.teacher.view', compact('teacher_view'));
+        return view('admin.teacher.view', compact('teacher_view'),[
+            'active' => 'teacher',
+        ]);
     }
 
     /**
@@ -116,7 +122,9 @@ class TeacherController extends Controller
     public function edit($id)
     {
         $teacher_edit = Teacher::find($id);
-        return view('admin.teacher.edit', compact('teacher_edit'));
+        return view('admin.teacher.edit', compact('teacher_edit'),[
+            'active' => 'teacher',
+        ]);
     }
 
     /**
