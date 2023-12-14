@@ -102,7 +102,9 @@ class PresenceTController extends Controller
         $teacher_Edt = Teacher::all();
         $presence_Tedit = PresenceT::find($id);
 
-        return view('admin.presence_tc.edit', compact('presence_Tedit', 'teacher_Edt'));
+        return view('admin.presence_tc.edit', compact('presence_Tedit', 'teacher_Edt'),[
+            'active' => 'teacher',
+        ]);
     }
 
     /**
