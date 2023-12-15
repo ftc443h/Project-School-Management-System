@@ -13,7 +13,12 @@
             <li><a class="nav-link scrollto" href="#team">Team</a></li>
             <li><a class="nav-link scrollto" href="#Event">Event</a></li>
             <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-            <li><a class="getstarted scrollto" href="{{ url('/login') }}">Login</a></li>
+            <li><a class="getstarted scrollto" href="{{ url('/login') }}">
+                    @if(empty(Auth::user()->name))
+                    {{'login'}}
+                    @else
+                    {{Auth::user()->name}}
+                    @endif</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->

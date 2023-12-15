@@ -25,7 +25,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'login';
 
     /**
      * Create a new controller instance.
@@ -33,9 +33,7 @@ class ResetPasswordController extends Controller
      * @return void
      */
     public function redirectTo(){
-        return route('dashboard.index',[
-        'active' => 'dashboard',
-        ]);
+        return route('auth.login');
     }
 
 

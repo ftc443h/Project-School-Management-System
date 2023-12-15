@@ -2,10 +2,11 @@
 @section('content')
 
 <div class="page-wrapper">
-    @if(Auth::user()->role_users == 'admin')
+    @if(Auth::user()->role_users != 'teacher')
     @include('admin.dashboard.lesson_student_admin')
     @else
     <div class="content container-fluid">
+        
         <div class="row">
             <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                 <div class="dash-widget dash-widget5">

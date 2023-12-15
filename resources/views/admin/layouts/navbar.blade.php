@@ -37,7 +37,7 @@
                     <a href="{{ route('classroom.index') }}"><img src="{{ asset('admin/assets/img/sidebar/icon-7.png') }}" alt="icon"><span>Classroom</span></a>
                 </li>
                 <li class="{{ ($active === 'lesson') ? 'active' : '' }}">
-                    <a href="{{ route('lesson_value.index')}}"><img src="{{ asset('admin/assets/img/sidebar/icon-12.png') }}" alt="icon"><span>Lesson Value</span></a>
+                    <a href="{{ route('lesson_value.index')}}"><img src="{{ asset('admin/assets/img/sidebar/icon-12.png') }}" alt="icon"><span>Lesson Score</span></a>
                 </li>
                 <li class="{{ ($active === 'learning') ? 'active' : '' }}">
                     <a href="{{ route('learning.index') }}"><img src="{{ asset('admin/assets/img/sidebar/icon-19.png') }}" alt="icon"><span>Lesson</span></a>
