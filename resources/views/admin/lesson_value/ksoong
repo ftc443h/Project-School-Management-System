@@ -1,7 +1,0 @@
-<div class="page-wrapper">
-    @if(Auth::user()->role_users == 'student')
-    @include('admin.dashboard.lesson_student_admin')
-    @else
-    
-    @endif
-</div>

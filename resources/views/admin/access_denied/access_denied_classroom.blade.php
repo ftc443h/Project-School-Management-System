@@ -11,4 +11,4 @@
     </svg>
 </use>
 <h1>403</h1>
-<h2>Not this time, access classroom student & student forbidden!</h2>
+<h2>Not this time, access classroom forbidden!</h2>

@@ -124,8 +124,8 @@ class ClassroomController extends Controller
         $student_shw = Student::all();
         $learning_shw = Learning::all();
         $classroom_view = Classroom::find($id);
-        $classroomCount = $classroom_view->count();
-        return view('admin.classroom.view', compact('classroom_view', 'classroomCount', 'teacher_shw', 'student_shw', 'learning_shw'),[
+        //$classroomCount = $classroom_view->count();
+        return view('admin.classroom.view', compact('classroom_view', 'teacher_shw', 'student_shw', 'learning_shw'),[
             'active' => 'classroom',
         ]);
     }

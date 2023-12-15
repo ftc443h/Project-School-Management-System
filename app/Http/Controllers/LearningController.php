@@ -78,9 +78,9 @@ class LearningController extends Controller
     {
         /* Show Learning */
         $learning_view = Learning::find($id);
-        $learningCount = $learning_view->count();
-        $classroomCount = $learning_view->count();
-        return view('admin.learning.view', compact('learning_view', 'classroomCount', 'learningCount'),[
+        //$learningCount = $learning_view->count();
+        //$classroomCount = $learning_view->count();
+        return view('admin.learning.view', compact('learning_view'),[
             'active' => 'learning',
         ]);
     }

@@ -147,7 +147,6 @@ class LessonController extends Controller
     {
         $studeview_Val = Student::all();
         $lesson_View = Lesson::find($id);
-
         return view('admin.lesson_value.view', compact('studeview_Val', 'lesson_View'),[
             'active' => 'lesson',
         ]);

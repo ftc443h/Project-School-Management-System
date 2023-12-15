@@ -1,11 +1,6 @@
 @extends('admin.layouts.index')
 @section('content')
-
 <div class="page-wrapper">
-
-    @if(Auth::user()->role_users == 'admin')
-    @include('admin.dashboard.learning_admin')
-    @else
     <div class="content container-fluid">
 
         @if ($message = Session::get('success'))
@@ -56,12 +51,12 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="page-title mb-0">Learning</h3>
+                    <h3 class="page-title mb-0">Lesson</h3>
                 </div>
                 <div class="col-md-6">
                     <ul class="breadcrumb mb-0 p-0 float-right">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}"><i class="fas fa-home"></i> Home</a></li>
-                        <li class="breadcrumb-item"><span>Learning</span></li>
+                        <li class="breadcrumb-item"><span>Lesson</span></li>
                     </ul>
                 </div>
             </div>
@@ -72,7 +67,12 @@
             <!-- DataTable with Hover -->
             <div class="col-lg-12">
                 <div class="card mb-4">
-
+                    @if(Auth::user()->role_users != 'admin')
+                    @else
+                    <div class="weppr-class container-fluid">
+                        <a class="text-center create" href="{{ route('learning.create') }}" title="Create"><i class="bi bi-plus-circle"></i></a>
+                    </div>
+                    @endif
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 
                     </div>
@@ -83,6 +83,10 @@
                                     <th class="text-center">No</th>
                                     <th class="text-center">Learning</th>
                                     <th class="text-center">Category</th>
+                                    @if(Auth::user()->role_users != 'admin')
+                                    @else
+                                    <th class="text-center">Action</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -92,6 +96,18 @@
                                     <td class="text-center">{{ $no }}</td>
                                     <td class="text-center">{{ $learn->learning_class}}</td>
                                     <td class="text-center">{{ $learn->category_class}}</td>
+                                    @if(Auth::user()->role_users != 'admin')
+                                    @else
+                                    <td class="text-center">
+                                        <form method="POST" action="{{ route('learning.destroy', $learn->id) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a class="text-center eyes" href="{{ route('learning.show', $learn->id)}}" title="View"><i class="bi bi-eye-fill text-center"></i></a>
+                                            <a class="text-center edit" href="{{ route('learning.edit', $learn->id)}}" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
+                                            <button class="text-center trash" name="delete" value="delete" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
+                                        </form>
+                                    </td>
+                                    @endif
                                 </tr>
                                 @php $no++; @endphp
                                 @endforeach
@@ -104,6 +120,6 @@
         <!--Row-->
 
     </div>
-    @endif
+    @include('admin.classroom.message')
 </div>
 @endsection

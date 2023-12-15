@@ -2,11 +2,8 @@
 @section('content')
 
 <div class="page-wrapper">
-
-    @if(Auth::user()->role_users == 'admin')
-    @include('admin.dashboard.classroom_admin')
-    @else
     <div class="content container-fluid">
+
         @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p class="mt-3">{{ $message }}</p>
@@ -71,8 +68,13 @@
             <!-- DataTable with Hover -->
             <div class="col-lg-12">
                 <div class="card mb-4">
+                    @if(Auth::user()->role_users != 'admin')
+                    @else
+                    <div class="weppr-class container-fluid">
+                        <a class="text-center create" href="{{ route('classroom.create') }}" title="Create"><i class="bi bi-plus-circle"></i></a>
+                    </div>
+                    @endif
                     @if(Auth::user()->role_users != 'student')
-                    
                     @else
                     <div class="weppr-class container-fluid">
                         <a class="text-center PDF" href="{{ url('/surat_perizinan') }}" title="Permit Letter"><i class="bi bi-file-earmark-pdf"></i></a>
@@ -97,6 +99,7 @@
                                     <th class="text-center">Date Start</th>
                                     <th class="text-center">Date End</th>
                                     <th class="text-center">Status</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -128,6 +131,23 @@
                                     <td class="text-center">
                                         <span class="badge text-center text-white {{$bg_color}} rounded-3 fw-semibold">{{$status}}</span>
                                     </td>
+                                    <td class="text-center">
+                                        <form method="POST" action="{{ route('classroom.destroy', $class->id) }}">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            @if(Auth::user()->role_users != 'student')
+                                            @else
+                                            <a class="text-center eyes" href="{{ route('classroom.show', $class->id) }}" title="view"><i class="bi bi-eye-fill" aria-hidden="true"></i></a>
+                                            @endif
+                                            
+                                            @if(Auth::user()->role_users != 'admin')
+                                            @else
+                                            <a class="text-center edit" href="{{ route('classroom.edit', $class->id) }}" title="Edit"><i class="bi bi-pencil-square" aria-hidden="true"></i></a>
+                                            <button class="text-center trash" type="submit" name="delete" value="delete" title="Trash"><i class="bi bi-trash3" aria-hidden="true"></i></button>
+                                            @endif
+                                        </form>
+                                    </td>
                                 </tr>
                                 @php $no++; @endphp
                                 @endforeach
@@ -138,7 +158,8 @@
             </div>
         </div>
         <!--Row-->
+
     </div>
-    @endif
+    @include('admin.classroom.message')
 </div>
 @endsection

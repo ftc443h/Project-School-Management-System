@@ -2,10 +2,14 @@
 @section('content')
 
 <div class="page-wrapper">
-    @if(Auth::user()->role_users != 'teacher')
-    @include('admin.dashboard.presence_student_admin')
-    @else
     <div class="content container-fluid">
+
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p class="mt-3">{{ $message }}</p>
+        </div>
+        @endif
+
         <div class="row">
             <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                 <div class="dash-widget dash-widget5">
@@ -45,7 +49,6 @@
             </div>
         </div>
 
-
         <div class="page-header">
             <div class="row">
                 <div class="col-md-6">
@@ -65,7 +68,12 @@
             <!-- DataTable with Hover -->
             <div class="col-lg-12">
                 <div class="card mb-4">
-
+                    <div class="weppr-class container-fluid">
+                        @if(Auth::user()->role_users != 'teacher')
+                        @else
+                        <a class="text-center create" href="{{ route('presence_st.create') }}" title="Create"><i class="bi bi-plus-circle"></i></a>
+                        @endif
+                    </div>
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 
                     </div>
@@ -78,26 +86,27 @@
                                     <th class="text-center">Student</th>
                                     <th class="text-center">Date</th>
                                     <th class="text-center">Status</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php $no = 1; @endphp
-                                @foreach($presensi_s as $presence_st)
+                                @foreach($presensi_s as $presence_stt)
                                 <tr>
                                     <td class="text-center">{{ $no }}</td>
                                     <td class="text-center">
-                                        @empty($presence_st->photoS)
+                                        @empty($presence_stt->photoS)
                                         <img src="{{url('admin/assets/img/profile/notprofileimages.png')}}" alt="" width="15%" style="width: 50px;">
                                         @else
-                                        <img src="{{url('admin/assets/img/profile/')}}/{{$presence_st->photoS}}" alt="" width="15%" style="width: 40px;">
+                                        <img src="{{url('admin/assets/img/profile/')}}/{{$presence_stt->photoS}}" alt="" width="15%" style="width: 40px;">
                                         @endempty
                                     </td>
-                                    <td class="text-center">{{ $presence_st->student }}</td>
-                                    <td class="text-center">{{ $presence_st->date_stud }}</td>
+                                    <td class="text-center">{{ $presence_stt->student }}</td>
+                                    <td class="text-center">{{ $presence_stt->date_stud }}</td>
                                     <td class="text-center">
                                         <!-- Kondisi Merubah Warna Otomatis Sesuai Status Presence Teacher -->
                                         @php
-                                        $status_Present = $presence_st->status_stud;
+                                        $status_Present = $presence_stt->status_stud;
                                         $btn_color = '';
 
                                         switch ($status_Present){
@@ -114,7 +123,26 @@
                                         $status_Present = '';
                                         }
                                         @endphp
-                                        <label class="btn btn-sm {{ $btn_color }}">{{$presence_st->status_stud}}</label>
+                                        <label class="btn btn-sm {{ $btn_color }}">{{$presence_stt->status_stud}}</label>
+                                    </td>
+                                    <td class="text-center">
+                                        <form method="POST" action="{{ route('presence_st.destroy', $presence_stt->id)}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            @if(Auth::user()->role_users != 'student')
+                                            @else
+                                            <a href="{{ route('presence_st.show', $presence_stt->id) }}" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
+                                            @endif
+
+                                            @if(Auth::user()->role_users != 'teacher')
+                                            @else
+                                            <a href="{{ route('presence_st.edit', $presence_stt->id) }}" class="text-center edit" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
+                                            @endif
+                                            
+                                            @if(Auth::user()->role_users != 'admin')
+                                            @else
+                                            <button class="text-center trash" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
+                                            @endif
                                     </td>
                                 </tr>
                                 @php $no++; @endphp
@@ -127,6 +155,6 @@
         </div>
         <!--Row-->
     </div>
-    @endif
+    @include('admin.classroom.message')
 </div>
 @endsection
