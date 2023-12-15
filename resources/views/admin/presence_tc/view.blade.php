@@ -78,9 +78,9 @@
                                         <h3 class="user-name m-t-0 previewT">{{$presens_view->tbl_teacher->name_teacher}}</h3>
                                         <h5 class="company-role m-t-0 m-b-0 rowViewT">Teacher</h5>
                                         <small class="text-muted">
-                                            <!-- Kondisi Merubah Warna Otomatis Sesuai Status Presence Teacher -->
+                                            
                                             @php
-                                            $status_Present = $presens_view->status_stud;
+                                            $status_Present = $presens_view->status_teac;
                                             $btn_color = '';
 
                                             switch ($status_Present){

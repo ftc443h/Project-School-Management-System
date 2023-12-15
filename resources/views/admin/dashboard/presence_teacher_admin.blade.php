@@ -68,9 +68,12 @@
             <!-- DataTable with Hover -->
             <div class="col-lg-12">
                 <div class="card mb-4">
+                    @if(Auth::user()->role_users != 'teacher')
+                    @else
                     <div class="weppr-class container-fluid">
                         <a class="text-center create" href="{{ route('presence_tc.create') }}" title="Create"><i class="bi bi-plus-circle"></i></a>
                     </div>
+                    @endif
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 
                     </div>
@@ -101,7 +104,7 @@
                                     <td class="text-center">{{$presensiteacher->teacher}}</td>
                                     <td class="text-center">{{$presensiteacher->date_teac}}</td>
                                     <td class="text-center">
-                                        <!-- Kondisi Merubah Warna Otomatis Sesuai Status Presence Teacher -->
+
                                         @php
                                         $status_Present = $presensiteacher->status_teac;
                                         $btn_color = '';
@@ -120,15 +123,25 @@
                                         $status_Present = '';
                                         }
                                         @endphp
+
                                         <label class="btn btn-sm {{ $btn_color }}">{{$presensiteacher->status_teac}}</label>
                                     </td>
                                     <td class="text-center">
                                         <form method="POST" action="{{ route('presence_tc.destroy', $presensiteacher->id)}}">
                                             @csrf
                                             @method('DELETE')
+
+                                            @if(Auth::user()->role_users != 'teacher')
+                                            @else
                                             <a href="{{ route('presence_tc.show', $presensiteacher->id) }}" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
                                             <a class="text-center edit" href="{{ route('presence_tc.edit', $presensiteacher->id)}}" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
+                                            @endif
+
+                                            @if(Auth::user()->role_users != 'admin')
+                                            @else
                                             <button class="text-center trash" name="delete" value="delete" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
+                                            @endif
+
                                         </form>
                                     </td>
                                 </tr>
