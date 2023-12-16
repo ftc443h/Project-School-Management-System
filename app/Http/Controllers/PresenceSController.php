@@ -65,7 +65,7 @@ class PresenceSController extends Controller
             'tbl_student_id.required' => 'Input Student Presence'
         ]);
 
-
+        /* Alert Global Laravel 5.8 */
         try{
             DB::table('tbl_presence_st')->insert([
                 'date_stud' => $request->date_stud,
@@ -154,6 +154,9 @@ class PresenceSController extends Controller
     {
         $presen_SDLT = PresenceS::find($id);
         PresenceS::where('id', $id)->delete();
-        return redirect()->route('presence_st.index')->with('success', 'Success Delete Data Presence Student');
+
+        /* Alert Delete Global Laravel 5.8 */
+        toast('Success Delete Data Presence Student', 'success');
+        return redirect()->back();
     }
 }

@@ -60,7 +60,7 @@ class LearningController extends Controller
             ]
         );
 
-        /* Alert Global Data Store Learning */
+        /* Alert Global Laravel 5.8 */
         try{
             DB::table('tbl_learning')->insert([
                 'learning_class' => $request->learning_class,
@@ -148,6 +148,9 @@ class LearningController extends Controller
     {
         $learning_delete = Learning::find($id);
         Learning::where('id', $id)->delete();
-        return redirect()->route('learning.index')->with('success', 'Success Delete Data Learning');
+        
+        /* Alert Delete Global Laravel 5.8 */
+        toast('Success Delete Data Learning', 'success');
+        return redirect()->back();
     }
 }

@@ -126,7 +126,7 @@
 
                                             @if(Auth::user()->role_users != 'admin')
                                             @else
-                                            <button class="text-center trash" name="delete" value="delete" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
+                                            <button type="submit" class="text-center trash" name="delete" value="delete" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
                                             @endif
                                         </form>
                                     </td>
@@ -144,4 +144,6 @@
     </div>
     @include('admin.classroom.message')
 </div>
+
+
 @endsection

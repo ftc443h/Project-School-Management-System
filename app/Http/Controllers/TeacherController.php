@@ -86,7 +86,7 @@ class TeacherController extends Controller
             $fileName = '';
         }
 
-        /* Alert Global Data Store Teacher */
+        /* Alert Global Laravel 5.8 */
         try{
             DB::table('tbl_teacher')->insert([
                 'photo_teacher' => $fileName,
@@ -217,6 +217,9 @@ class TeacherController extends Controller
         $teacher_delete = Teacher::find($id);
         if (!empty($teacher_delete->photo_teacher)) unlink('admin/assets/img/profile/' . $teacher_delete->photo_teacher);
         Teacher::where('id', $id)->delete();
-        return redirect()->route('teacher.index')->with('success', 'Success Delete Data Teacher');
+
+        /* Alert Delete Global Laravel 5.8 */
+        toast('Success Delete Data Teacher', 'success');
+        return redirect()->back();
     }
 }

@@ -127,7 +127,7 @@ class LessonController extends Controller
             ]
         );
 
-        /* Alert Global Data Store Lesson Score */
+        /* Alert Global Laravel 5.8 */
         try{
             DB::table('tbl_grade')->insert([
                 'dailytasks_grade' => $request->dailytasks_grade,
@@ -226,6 +226,9 @@ class LessonController extends Controller
     {
         $lesson_delete = Lesson::find($id);
         Lesson::where('id', $id)->delete();
-        return redirect()->route('lesson_value.index')->with('success', 'Success Delete Data Lesson Value Student');
+
+        /* Alert Delete Global Laravel 5.8 */
+        toast('Success Delete Data Lesson Value Student', 'success');
+        return redirect()->back();
     }
 }

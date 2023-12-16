@@ -82,7 +82,7 @@ class StudentController extends Controller
             $fileName = '';
         }
         
-        /* Alert Global Data Store Student */
+        /* Alert Global Laravel 5.8 */
         try{
             DB::table('tbl_student')->insert([
                 'code_student' => $request->code_student,
@@ -213,6 +213,9 @@ class StudentController extends Controller
         $student_delete = Student::find($id);
         if (!empty($student_delete->photo_student)) unlink('admin/assets/img/profile/' . $student_delete->photo_student);
         Student::where('id', $id)->delete();
-        return redirect()->route('student.index')->with('success', 'Success Delete Data Student');
+
+        /* Alert Delete Global Laravel 5.8 */
+        toast('Success Delete Data Student', 'success');
+        return redirect()->back();
     }
 }

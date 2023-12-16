@@ -57,6 +57,8 @@
     <!-- JavaScript Database External Template -->
     <script src="{{ asset('admin/assets/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('admin/assets/js/sweetalert2.js') }}"></script>
 
     <!-- Page level custom scripts -->
     <script>

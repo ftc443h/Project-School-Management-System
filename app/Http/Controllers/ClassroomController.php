@@ -96,7 +96,7 @@ class ClassroomController extends Controller
             ]
         );
 
-        /* Alert Global Data Store Classroom */
+        /* Alert Global Laravel 5.8 */
         try{
             DB::table('tbl_classroom')->insert([
                 'offline_classroom' => $request->offline_classroom,
@@ -224,7 +224,10 @@ class ClassroomController extends Controller
     {
         $classroom_delete = Classroom::find($id);
         Classroom::where('id', $id)->delete();
-        return redirect()->route('classroom.index')->with('success', 'Success Delete Data Classroom');
+
+        /* Alert Delete Global Laravel 5.8 */
+        toast('Success Delete Data Classroom', 'success');
+        return redirect()->back();
     }
 
     public function generatePDF(){
