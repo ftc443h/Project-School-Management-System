@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Student;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 class StudentController extends Controller
 {
     /**
@@ -80,18 +81,24 @@ class StudentController extends Controller
         } else {
             $fileName = '';
         }
-
-        DB::table('tbl_student')->insert([
-            'code_student' => $request->code_student,
-            'name_student' => $request->name_student,
-            'gender_student' => $request->gender_student,
-            'birthday_student' => $request->birthday_student,
-            'email_student' => $request->email_student,
-            'phone_student' => $request->phone_student,
-            'address_student' => $request->address_student,
-            'photo_student' => $fileName
-        ]);
-        return redirect()->route('student.index')->with('success', 'New student data has been successfully saved');
+        
+        /* Alert Global Data Store Student */
+        try{
+            DB::table('tbl_student')->insert([
+                'code_student' => $request->code_student,
+                'name_student' => $request->name_student,
+                'gender_student' => $request->gender_student,
+                'birthday_student' => $request->birthday_student,
+                'email_student' => $request->email_student,
+                'phone_student' => $request->phone_student,
+                'address_student' => $request->address_student,
+                'photo_student' => $fileName
+            ]);
+            return redirect()->route('student.index')->with('success', 'New Student Data Has Been Successfully Saved');
+        }
+        catch(\Exception $allertStore){
+            return redirect()->route('student.index')->with('error', 'New Student Data Has Been Error Saved');
+        }
     }
 
     /**

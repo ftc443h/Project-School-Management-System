@@ -28,6 +28,7 @@ class ClassroomController extends Controller
             ->join('tbl_learning', 'tbl_learning.id', '=', 'tbl_classroom.tbl_learning_id')
             ->select('tbl_classroom.*', 'tbl_teacher.name_teacher as teacher', 'tbl_student.name_student as student', 'tbl_learning.learning_class as learning')
             ->get();
+            
 
         $classroomCount = $classroom->count();
         return view('admin.classroom.index', compact('classroom', 'classroomCount'),[
@@ -124,7 +125,6 @@ class ClassroomController extends Controller
         $student_shw = Student::all();
         $learning_shw = Learning::all();
         $classroom_view = Classroom::find($id);
-        //$classroomCount = $classroom_view->count();
         return view('admin.classroom.view', compact('classroom_view', 'teacher_shw', 'student_shw', 'learning_shw'),[
             'active' => 'classroom',
         ]);
