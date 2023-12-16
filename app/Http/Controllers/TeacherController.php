@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class TeacherController extends Controller
 {
@@ -85,18 +86,23 @@ class TeacherController extends Controller
             $fileName = '';
         }
 
-        /* Create Data New Teacher */
-        DB::table('tbl_teacher')->insert([
-            'photo_teacher' => $fileName,
-            'code_teacher' => $request->code_teacher,
-            'name_teacher' => $request->name_teacher,
-            'gender_teacher' => $request->gender_teacher,
-            'birthday_teacher' => $request->birthday_teacher,
-            'email_teacher' => $request->email_teacher,
-            'phone_teacher' => $request->phone_teacher,
-            'address_teacher' => $request->address_teacher,
-        ]);
-        return redirect()->route('teacher.index')->with('success', 'New teacher data has been successfully saved');
+        /* Alert Global Data Store Teacher */
+        try{
+            DB::table('tbl_teacher')->insert([
+                'photo_teacher' => $fileName,
+                'code_teacher' => $request->code_teacher,
+                'name_teacher' => $request->name_teacher,
+                'gender_teacher' => $request->gender_teacher,
+                'birthday_teacher' => $request->birthday_teacher,
+                'email_teacher' => $request->email_teacher,
+                'phone_teacher' => $request->phone_teacher,
+                'address_teacher' => $request->address_teacher,
+            ]);
+            return redirect()->route('teacher.index')->with('success', 'New Teacher Data Has Been Successfully Saved');
+        }
+        catch(\Exception $allertStore){
+            return redirect()->route('teacher.index')->with('error', 'New Teacher Data Has Been Error Saved');
+        }
     }
 
     /**

@@ -7,6 +7,7 @@ use App\PresenceT;
 use App\Student;
 use Illuminate\Support\Facades\DB;
 use App\Teacher;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PresenceTController extends Controller
 {
@@ -67,13 +68,19 @@ class PresenceTController extends Controller
             'tbl_teacher_id.required' => 'Input Teacher Presence'
         ]);
 
-        DB::table('tbl_presence_tec')->insert([
-            'date_teac' => $request->date_teac,
-            'status_teac' => $request->status_teac,
-            'tbl_teacher_id' => $request->tbl_teacher_id
-        ]);
+        /* Alert Global Data Store Presence Teacher */
+        try{
+            DB::table('tbl_presence_tec')->insert([
+                'date_teac' => $request->date_teac,
+                'status_teac' => $request->status_teac,
+                'tbl_teacher_id' => $request->tbl_teacher_id
+            ]);
 
-        return redirect()->route('presence_tc.index')->with('success', 'Presence Data Added Successfully');
+            return redirect()->route('presence_tc.index')->with('success', 'New Presence Teacher Data Has Been Successfully Saved');
+        }
+        catch(\Exception $allertStore){
+            return redirect()->route('presence_tc.index')->with('error', 'New Presence Teacher Data Has Been Error Saved');
+        }
     }
 
     /**

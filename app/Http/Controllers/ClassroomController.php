@@ -11,6 +11,7 @@ use App\Teacher;
 use App\User;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Database\Eloquent\Model;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ClassroomController extends Controller
 {
@@ -95,21 +96,26 @@ class ClassroomController extends Controller
             ]
         );
 
-        /* DB Table Classroom */
-        DB::table('tbl_classroom')->insert([
-            'offline_classroom' => $request->offline_classroom,
-            'online_classroom' => $request->online_classroom,
-            'clock_start' => $request->clock_start,
-            'clock_end' => $request->clock_end,
-            'date_start' => $request->date_start,
-            'date_end' => $request->date_end,
-            'tbl_student_id' => $request->tbl_student_id,
-            'tbl_teacher_id' => $request->tbl_teacher_id,
-            'tbl_learning_id' => $request->tbl_learning_id,
-            'users_id' => $request->users_id,
-        ]);
+        /* Alert Global Data Store Classroom */
+        try{
+            DB::table('tbl_classroom')->insert([
+                'offline_classroom' => $request->offline_classroom,
+                'online_classroom' => $request->online_classroom,
+                'clock_start' => $request->clock_start,
+                'clock_end' => $request->clock_end,
+                'date_start' => $request->date_start,
+                'date_end' => $request->date_end,
+                'tbl_student_id' => $request->tbl_student_id,
+                'tbl_teacher_id' => $request->tbl_teacher_id,
+                'tbl_learning_id' => $request->tbl_learning_id,
+                'users_id' => $request->users_id,
+            ]);
 
-        return redirect()->route('classroom.index')->with('success', 'Class Data Added Successfully');
+            return redirect()->route('classroom.index')->with('success', 'New Classroom Data Has Been Successfully Saved');
+        }
+        catch(\Exception $allertStore){
+            return redirect()->route('classroom.index')->with('error', 'New Classroom Data Has Been Error Saved');
+        }
     }
 
     /**

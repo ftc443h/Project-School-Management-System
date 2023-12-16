@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Learning;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LearningController extends Controller
 {
@@ -59,13 +60,18 @@ class LearningController extends Controller
             ]
         );
 
-        /* DB Table Learning */
-        DB::table('tbl_learning')->insert([
-            'learning_class' => $request->learning_class,
-            'category_class' => $request->category_class
-        ]);
+        /* Alert Global Data Store Learning */
+        try{
+            DB::table('tbl_learning')->insert([
+                'learning_class' => $request->learning_class,
+                'category_class' => $request->category_class
+            ]);
 
-        return redirect()->route('learning.index')->with('success', 'Learning Data Added Successfully');
+            return redirect()->route('learning.index')->with('success', 'New Lesson Data Has Been Successfully Saved');
+        }
+        catch(\Exception $allertStore){
+            return redirect()->route('learning.index')->with('error', 'New Lesson Data Has Been Error Saved');
+        }
     }
 
     /**

@@ -4,7 +4,7 @@
 <div class="page-wrapper">
     <div class="content container-fluid">
 
-    @include('sweetalert::alert')
+        @include('sweetalert::alert')
 
         <div class="row">
             <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
@@ -117,7 +117,7 @@
                                         <form method="POST" action="{{ route('student.destroy', $students->id)}}">
                                             @csrf
                                             @method('DELETE')
-                                            
+
                                             @if(Auth::user()->role_users != 'student')
                                             @else
                                             <a href="{{route('student.show', $students->id)}}" class="text-center eyes" title="Detail"><i class="bi bi-eye-fill text-center"></i></a>

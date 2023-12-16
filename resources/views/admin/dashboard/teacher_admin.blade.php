@@ -3,11 +3,7 @@
 <div class="page-wrapper">
     <div class="content container-fluid">
 
-        @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p class="mt-3">{{ $message }}</p>
-        </div>
-        @endif
+        @include('sweetalert::alert')
 
         <div class="row">
             <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
@@ -115,7 +111,7 @@
                                         <form method="POST" action="{{ route('teacher.destroy', $tchr->id)}}">
                                             @csrf
                                             @method('DELETE')
-                                            
+
                                             @if(Auth::user()->role_users != 'teacher')
                                             @else
                                             <a href="{{route('teacher.show', $tchr->id)}}" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>

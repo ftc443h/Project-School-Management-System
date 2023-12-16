@@ -4,11 +4,7 @@
 <div class="page-wrapper">
     <div class="content container-fluid">
 
-        @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p class="mt-3">{{ $message }}</p>
-        </div>
-        @endif
+        @include('sweetalert::alert')
 
         <div class="row">
             <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
@@ -140,7 +136,7 @@
                                             @else
                                             <a class="text-center eyes" href="{{ route('classroom.show', $class->id) }}" title="view"><i class="bi bi-eye-fill" aria-hidden="true"></i></a>
                                             @endif
-                                            
+
                                             @if(Auth::user()->role_users != 'admin')
                                             @else
                                             <a class="text-center edit" href="{{ route('classroom.edit', $class->id) }}" title="Edit"><i class="bi bi-pencil-square" aria-hidden="true"></i></a>

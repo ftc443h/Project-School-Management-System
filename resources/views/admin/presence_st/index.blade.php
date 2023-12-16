@@ -4,11 +4,7 @@
 <div class="page-wrapper">
     <div class="content container-fluid">
 
-        @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p class="mt-3">{{ $message }}</p>
-        </div>
-        @endif
+        @include('sweetalert::alert')
 
         <div class="row">
             <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
@@ -138,7 +134,7 @@
                                             @else
                                             <a href="{{ route('presence_st.edit', $presence_stt->id) }}" class="text-center edit" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
                                             @endif
-                                            
+
                                             @if(Auth::user()->role_users != 'admin')
                                             @else
                                             <button class="text-center trash" title="Trash"><i class="bi bi-trash3 text-center"></i></button>

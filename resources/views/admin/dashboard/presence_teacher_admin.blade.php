@@ -4,11 +4,7 @@
 <div class="page-wrapper">
     <div class="content container-fluid">
 
-        @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p class="mt-3">{{ $message }}</p>
-        </div>
-        @endif
+        @include('sweetalert::alert')
 
         <div class="row">
             <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">

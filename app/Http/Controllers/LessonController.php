@@ -8,6 +8,7 @@ use App\Learning;
 use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LessonController extends Controller
 {
@@ -126,15 +127,21 @@ class LessonController extends Controller
             ]
         );
 
-        DB::table('tbl_grade')->insert([
-            'dailytasks_grade' => $request->dailytasks_grade,
-            'uts_grade' => $request->uts_grade,
-            'uas_grade' => $request->uas_grade,
-            'tbl_learning_id' => $request->tbl_learning_id,
-            'tbl_student_id' => $request->tbl_student_id,
-        ]);
+        /* Alert Global Data Store Lesson Score */
+        try{
+            DB::table('tbl_grade')->insert([
+                'dailytasks_grade' => $request->dailytasks_grade,
+                'uts_grade' => $request->uts_grade,
+                'uas_grade' => $request->uas_grade,
+                'tbl_learning_id' => $request->tbl_learning_id,
+                'tbl_student_id' => $request->tbl_student_id,
+            ]);
 
-        return redirect()->route('lesson_value.index')->with('success', 'Value Data Student Added Successfully');
+            return redirect()->route('lesson_value.index')->with('success', 'New Lesson Score Data Has Been Successfully Saved');
+        }
+        catch(\Exception $allertStore){
+            return redirect()->route('lesson_value.index')->with('error', 'New Lesson Score Data Has Been Error Saved');
+        }    
     }
 
     /**
