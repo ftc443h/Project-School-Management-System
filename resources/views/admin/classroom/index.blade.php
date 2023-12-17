@@ -132,8 +132,7 @@
                                             @csrf
                                             @method('DELETE')
 
-                                            @if(Auth::user()->role_users != 'student')
-                                            @else
+                                            @if(Auth::user()->role_users == 'student' || Auth::user()->role_users == 'admin')
                                             <a class="text-center eyes" href="{{ route('classroom.show', $class->id) }}" title="view"><i class="bi bi-eye-fill" aria-hidden="true"></i></a>
                                             @endif
 

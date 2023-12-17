@@ -64,8 +64,7 @@
             <!-- DataTable with Hover -->
             <div class="col-lg-12">
                 <div class="card mb-4">
-                    @if(Auth::user()->role_users != 'student')
-                    @else
+                    @if(Auth::user()->role_users == 'teacher' || Auth::user()->role_users == 'admin')
                     <div class="weppr-class container-fluid">
                         <a class="text-center create" href="{{ route('student.create') }}" title="Create"><i class="bi bi-plus-circle"></i></a>
                     </div>
@@ -86,8 +85,7 @@
                                     <th class="text-center">Email</th>
                                     <th class="text-center">Phone Number</th>
                                     <th class="text-center">Address</th>
-                                    @if(Auth::user()->role_users == 'teacher')
-                                    @else
+                                    @if(Auth::user()->role_users == 'teacher' || Auth::user()->role_users == 'admin' || Auth::user()->role_users == 'student')
                                     <th class="text-center">Action</th>
                                     @endif
                                 </tr>
@@ -111,26 +109,21 @@
                                     <td class="text-center">{{ $students->email_student }}</td>
                                     <td class="text-center">{{ $students->phone_student }}</td>
                                     <td class="text-center">{{ $students->address_student }}</td>
-                                    @if(Auth::user()->role_users == 'teacher')
-                                    @else
                                     <td class="text-center">
                                         <form method="POST" action="{{ route('student.destroy', $students->id)}}">
                                             @csrf
                                             @method('DELETE')
 
-                                            @if(Auth::user()->role_users != 'student')
-                                            @else
-                                            <a href="{{route('student.show', $students->id)}}" class="text-center eyes" title="Detail"><i class="bi bi-eye-fill text-center"></i></a>
-                                            <a href="{{route('student.edit', $students->id)}}" class="text-center edit" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
+                                            @if(Auth::user()->role_users != 'student' || Auth::user()->role_users == 'admin')
+                                            <a href="{{route('student.show', $students->id)}}" class="text-center eyes" title="Detail"><i class="bi bi-eye-fill text-center"></i></a>                                            
                                             @endif
-
-                                            @if(Auth::user()->role_users != 'admin')
-                                            @else
+                                            
+                                            @if(Auth::user()->role_users == 'teacher' || Auth::user()->role_users == 'admin')
+                                            <a href="{{route('student.edit', $students->id)}}" class="text-center edit" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
                                             <button type="submit" class="text-center trash" name="delete" value="delete" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
                                             @endif
                                         </form>
                                     </td>
-                                    @endif
                                 </tr>
                                 @php $no++; @endphp
                                 @endforeach

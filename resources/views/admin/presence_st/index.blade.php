@@ -65,8 +65,7 @@
             <div class="col-lg-12">
                 <div class="card mb-4">
                     <div class="weppr-class container-fluid">
-                        @if(Auth::user()->role_users != 'teacher')
-                        @else
+                        @if(Auth::user()->role_users == 'teacher' || Auth::user()->role_users == 'admin')
                         <a class="text-center create" href="{{ route('presence_st.create') }}" title="Create"><i class="bi bi-plus-circle"></i></a>
                         @endif
                     </div>
@@ -125,18 +124,13 @@
                                         <form method="POST" action="{{ route('presence_st.destroy', $presence_stt->id)}}">
                                             @csrf
                                             @method('DELETE')
-                                            @if(Auth::user()->role_users != 'student')
-                                            @else
+                                            
+                                            @if(Auth::user()->role_users != 'teacher' || Auth::user()->role_users == 'admin')
                                             <a href="{{ route('presence_st.show', $presence_stt->id) }}" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
                                             @endif
 
-                                            @if(Auth::user()->role_users != 'teacher')
-                                            @else
+                                            @if(Auth::user()->role_users == 'teacher' || Auth::user()->role_users == 'admin')
                                             <a href="{{ route('presence_st.edit', $presence_stt->id) }}" class="text-center edit" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
-                                            @endif
-
-                                            @if(Auth::user()->role_users != 'admin')
-                                            @else
                                             <button class="text-center trash" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
                                             @endif
                                     </td>

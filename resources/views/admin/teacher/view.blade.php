@@ -182,7 +182,11 @@
                                                         survived not only five centuries, but also the leap
                                                         into electronic typesetting, remaining essentially
                                                         unchanged.</p>
+
+                                                    @if(Auth::user()->role_users != 'admin')
+                                                    @else
                                                     <a class="btn btn-warning text-white edit-prof">Edit</a>
+                                                    @endif
                                                     <a href="{{url('/teacher')}}" class="btn btn-danger text-white back-prof">Back</a>
                                                 </div>
                                             </div>

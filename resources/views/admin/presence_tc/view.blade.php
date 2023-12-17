@@ -126,7 +126,10 @@
                                         </li>
                                     </ul>
                                     <a href="{{url('/presence_tc')}}" class="btn btn-danger btp">Cancel</a>
+                                    @if(Auth::user()->role_users != 'admin')
+                                    @else
                                     <button type="submit" name="proses" value="simpan" id="simpan" class="btn btn-primary btp">Edit</button>
+                                    @endif
                                 </div>
                             </div>
                         </div>

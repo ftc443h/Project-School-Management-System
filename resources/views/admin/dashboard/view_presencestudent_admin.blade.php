@@ -126,8 +126,7 @@
                                         </li>
                                     </ul>
                                     <a href="{{url('/presence_st')}}" class="btn btn-danger btp">Cancel</a>
-                                    @if(Auth::user()->role_users != 'teacher')
-                                    @else
+                                    @if(Auth::user()->role_users == 'teacher' || Auth::user()->role_users == 'admin')
                                     <a type="submit" href="{{ route('presence_st.edit', $presensist_view->id)}}" name="proses" value="simpan" id="simpan" class="btn btn-primary btp">Edit</a>
                                     @endif
                                 </div>
