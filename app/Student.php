@@ -34,4 +34,9 @@ class Student extends Model
     {
         return $this->hasMany('App\Lesson');
     }
+
+    public function tbl_assigment()
+    {
+        return $this->hasMany('App\assigment');
+    }
 }

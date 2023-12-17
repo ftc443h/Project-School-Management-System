@@ -80,7 +80,7 @@
                             <div class="form-group row ">
                                 <label class="bi bi-building-fill-add col-form-label col-md-2 LabForm"> ID</label>
                                 <div class="col-md-10">
-                                    <input type="text" value="{{old('code_student')}}" name="code_student" class="form-control place @error ('code_student') is-invalid @else is-valid @enderror" placeholder="Input student">
+                                    <input type="text" value="{{old('code_student')}}" name="code_student" class="form-control place @error ('code_student') is-invalid @else is-valid @enderror" placeholder="Input ID Student">
                                     @error('code_student')
                                     <div class="invalid-feedback">
                                         {{$message}}
@@ -91,7 +91,7 @@
                             <div class="form-group row ">
                                 <label class="bi bi-person-plus-fill col-form-label col-md-2 LabForm"> Student</label>
                                 <div class="col-md-10">
-                                    <input type="text" value="{{old('name_student')}}" name="name_student" class="form-control place @error ('name_student') is-invalid @else is-valid @enderror" placeholder="Input Name student">
+                                    <input type="text" value="{{old('name_student')}}" name="name_student" class="form-control place @error ('name_student') is-invalid @else is-valid @enderror" placeholder="Input Name Student">
                                     @error('name_student')
                                     <div class="invalid-feedback">
                                         {{$message}}
@@ -120,8 +120,8 @@
                                     </div>
                                     <div class="radio">
                                         <label class="genderInPT">
-                                            <input type="radio" class="@error('gender_student') is-invalid @enderror" value="female" id="gender_student" name="gender_student"> Female
-                                            @error('birthday_student')
+                                            <input type="radio" class="@error('gender_student') is-invalid @enderror" value="Female" id="gender_student" name="gender_student"> Female
+                                            @error('gender_student')
                                             <div class="invalid-feedback">
                                                 {{$message}}
                                             </div>

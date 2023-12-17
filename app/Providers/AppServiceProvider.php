@@ -9,6 +9,7 @@ use App\presenceS;
 use App\Classroom;
 use App\Learning;
 use App\Lesson;
+use App\Assigment;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -47,6 +48,8 @@ class AppServiceProvider extends ServiceProvider
             $view->with('learningCount', $learningCount);
             $lessonValueCount = Lesson::count();
             $view->with('lessonValueCount', $lessonValueCount);
+            $assigmentCount = Assigment::count();
+            $view->with('lessonValueCount', $assigmentCount);
         });
     }
 }

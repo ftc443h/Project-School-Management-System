@@ -81,7 +81,7 @@
                             <div class="form-group row ">
                                 <label class="bi bi-building-fill-add col-form-label col-md-2 LabForm"> ID</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="code_teacher" value="{{old('code_teacher')}}" class="form-control place @error ('code_teacher') is-invalid @else is-valid @enderror" placeholder="Input teacher">
+                                    <input type="text" name="code_teacher" value="{{old('code_teacher')}}" class="form-control place @error ('code_teacher') is-invalid @else is-valid @enderror" placeholder="Input ID teacher">
                                     @error('code_teacher')
                                     <div class="invalid-feedback">
                                         {{$message}}

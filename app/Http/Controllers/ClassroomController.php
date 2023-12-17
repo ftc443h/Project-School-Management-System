@@ -30,7 +30,6 @@ class ClassroomController extends Controller
             ->select('tbl_classroom.*', 'tbl_teacher.name_teacher as teacher', 'tbl_student.name_student as student', 'tbl_learning.learning_class as learning')
             ->get();
             
-
         $classroomCount = $classroom->count();
         return view('admin.classroom.index', compact('classroom', 'classroomCount'),[
             'active' => 'classroom',

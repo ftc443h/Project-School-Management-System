@@ -45,11 +45,11 @@ class StudentController extends Controller
     {
         /* Validate Student */
         $request->validate([
-            'code_student' => 'required|max:6',
+            'code_student' => 'required|max:10',
             'name_student' => 'required|max:100',
             'gender_student' => 'required',
             'birthday_student' => 'required',
-            'email_student' => 'required|max:20',
+            'email_student' => 'required|max:50',
             'phone_student' => 'required|max:15',
             'address_student' => 'required',
             'photo_student' => 'required|image|mimes:jpg,png,gif,svg|min:2|max:280'
@@ -58,17 +58,17 @@ class StudentController extends Controller
         /* Message Error Student*/
         [
             'code_student.required' => 'Input Code Student',
-            'code_student.max' => 'Input Code Max 6',
+            'code_student.max' => 'Input Code Max 10',
             'code_student.unique' => 'Must Not Be The Same Code',
             'gender_student.required' => 'Input Select Gender Male / Female',
             'email_student.required' => 'Input E-Mail Student',
-            'email_student.max' => 'Input E-Mail Max 20',
+            'email_student.max' => 'Input E-Mail Max 50',
             'email_student.unique' => 'Cant Match Existing Email',
             'phone_student.required' => 'Input Telephone',
             'phone_student.integer' => 'Input Number Telephone',
             'phone_student.max' => 'Input Telephone Max 15',
             'address_student' => 'Input Address Student Invalid',
-            'photo_tstudent.max' => 'Input File Max 280',
+            'photo_student.max' => 'Input File Max 280',
             'photo_student.min' => 'Input File Min 2 MB',
             'photo_student.mimes' => 'Input jpg,png,gif,svg',
             'photo_student.image' => 'This File Is Not An Image'
@@ -141,11 +141,11 @@ class StudentController extends Controller
         $request->validate(
             [
                 'photo_student' => 'required|image|mimes:jpg,png,gif,svg|min:2|max:280',
-                'code_student' => 'required|max:6',
+                'code_student' => 'required|max:10',
                 'name_student' => 'required|max:100',
                 'gender_student' => 'required',
                 'birthday_student' => 'required',
-                'email_student' => 'required|max:20',
+                'email_student' => 'required|max:50',
                 'phone_student' => 'required|max:15',
                 'address_student' => 'required',
             ],
@@ -158,11 +158,11 @@ class StudentController extends Controller
                 'photo_student.mimes' => 'Input jpg,png,gif,svg',
                 'photo_student.image' => 'This File Is Not An Image',
                 'code_student.required' => 'Input Code Student',
-                'code_student.max' => 'Input Code Max 6',
+                'code_student.max' => 'Input Code Max 10',
                 'code_student.unique' => 'Must Not Be The Same Code',
                 'gender_student.required' => 'Input Select Gender Male / Female',
                 'email_student.required' => 'Input E-Mail Student',
-                'email_student.max' => 'Input E-Mail Max 20',
+                'email_student.max' => 'Input E-Mail Max 50',
                 'email_student.unique' => 'Cant Match Existing Email',
                 'phone_student.required' => 'Input Telephone',
                 'phone_student.integer' => 'Input Number Telephone',

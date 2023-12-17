@@ -45,8 +45,8 @@
                 </li>
                 <li class="menu-title">Daily Tasks</li>
                 <li class="submenu">
-                <li class="">
-                    <a href=""><img src="{{ asset('admin/assets/img/sidebar/icon-4.png') }}" alt="icon"><span>Assignment</span></a>
+                <li class="{{ ($active === 'assigment') ? 'active' : '' }}">
+                    <a href="{{ route('assigment.index') }}"><img src="{{ asset('admin/assets/img/sidebar/icon-4.png') }}" alt="icon"><span>Assignment</span></a>
                 </li>
             </ul>
         </div>
