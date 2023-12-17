@@ -51,7 +51,7 @@ section {
 }
 
 .section-header h2 {
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 1px;
   font-weight: 700;
   margin: 0;
@@ -62,7 +62,7 @@ section {
 .section-header p {
   margin: 10px 0 0 0;
   padding: 0;
-  font-size: 38px;
+  font-size: 26px;
   line-height: 42px;
   font-weight: 700;
   color: #55CE63;
@@ -70,7 +70,7 @@ section {
 
 @media (max-width: 768px) {
   .section-header p {
-    font-size: 28px;
+    font-size: 26px;
     line-height: 32px;
   }
 }
@@ -479,7 +479,7 @@ section {
 
 .hero h1 {
   margin: 0;
-  font-size: 40px;
+  font-size: 32px;
   font-weight: bold;
   color: #55CE63;
   font-family: 'Roboto', sans-serif;
@@ -603,7 +603,7 @@ section {
 }
 
 .about h2 {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
   color: #55CE63;
