@@ -13,7 +13,7 @@
             <li><a class="nav-link scrollto" href="#team">Team</a></li>
             <li><a class="nav-link scrollto" href="#Event">Event</a></li>
             <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-            <li><a class="getstarted scrollto" href="{{ url('/login') }}">
+            <li><a class="getstarted scrollto" href="{{ route('/login') }}">
                     @if(empty(Auth::user()->name))
                     {{'login'}}
                     @else
