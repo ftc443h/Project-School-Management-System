@@ -48,8 +48,11 @@
                 <li class="{{ ($active === 'assigment') ? 'active' : '' }}">
                     <a href="{{ route('assigment.index') }}"><img src="{{ asset('admin/assets/img/sidebar/icon-4.png') }}" alt="icon"><span>Assignment</span></a>
                 </li>
-                <li class="menu-title">Landing Pages</li>
+                <li class="menu-title">Pages</li>
                 <li class="submenu">
+                <li class="{{ ($active === 'user') ? 'active' : '' }}">
+                    <a href="{{ route('user.index') }}"><img src="{{ asset('admin/assets/img/sidebar/icon-4.png') }}" alt="icon"><span>Profile</span></a>
+                </li>
                 <li>
                     <a href="{{ url('/') }}"><img src="{{ asset('admin/assets/img/sidebar/icon-15.png') }}" alt="icon"><span>Pages</span></a>
                 </li>

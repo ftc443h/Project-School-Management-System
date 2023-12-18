@@ -102,7 +102,12 @@
             </li>
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class=" nav-link user-link" data-toggle="dropdown">
-                    <span class="user-img"><img class="rounded-circle" src="{{ asset('admin/assets/img/users/') }}/{{Auth::user()->photo}}" width="30">
+                    <span class="user-img">
+                        @if(empty(Auth::user()->photo))
+                        <img class="rounded-circle" src="{{ url('admin/assets/img/profile/notprofileimages.png') }}" style="width: 34px; height: 34px;">
+                        @else
+                        <img class="rounded-circle" src="{{ url('admin/assets/img/users/') }}/{{Auth::user()->photo}}" style="width: 34px; height: 34px;">
+                        @endif
                         <span class="status online"></span></span>
                     <span>
                         @if(empty(Auth::user()->name))

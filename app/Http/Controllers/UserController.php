@@ -17,7 +17,8 @@ class UserController extends Controller
     public function index()
     {
         $myuser = User::class;
-        return view('admin.user.index', compact('myuser'));
+        return view('admin.user.index', compact('myuser'),[
+            'active' => 'user',]);
     }
 
     /**

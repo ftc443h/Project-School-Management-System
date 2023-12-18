@@ -6,7 +6,16 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="page-title mb-0">Dashboard</h3>
+                    <h3 class="page-title mb-0">
+                        Dashboard
+                        <label class="btn btn-sm btn-success" style="margin-top: 7px; font-weight: bold; text-transform: uppercase; font-size: 12px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                        @if(empty(Auth::user()->role_users))
+                        {{''}}
+                        @else
+                        {{Auth::user()->role_users}}
+                        @endif
+                        </label>
+                    </h3>
                 </div>
                 <div class="col-md-6">
                     <ul class="breadcrumb mb-0 p-0 float-right">
@@ -17,10 +26,15 @@
             </div>
         </div>
 
+        @if(Auth::user()->role_users == 'student' || Auth::user()->role_users == 'teacher')
         <div class="card-box pd-20 height-100-p mb-30">
             <div class="row align-items-center">
                 <div class="col-md-4">
-                    <img class="img-fluid" src="{{ asset('admin/assets/img/users/') }}/{{Auth::user()->photo}}" alt="">
+                        @if(empty(Auth::user()->photo))
+                        <img class="img-fluid" src="{{ url('admin/assets/img/profile/notprofileimages.png') }}" alt="">
+                        @else
+                        <img class="img-fluid" src="{{ url('admin/assets/img/users/') }}/{{Auth::user()->photo}}" alt="">
+                        @endif
                 </div>
                 <div class="col-md-8 cls">
                     <h4 class="klass">
@@ -44,7 +58,9 @@
                 </div>
             </div>
         </div>
+        @endif
 
+        @if(Auth::user()->role_users == 'admin')
         <div class="row">
             <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                 <div class="dash-widget dash-widget5">
@@ -83,7 +99,9 @@
                 </div>
             </div>
         </div>
+        @endif
 
+        @if(Auth::user()->role_users == 'student' || Auth::user()->role_users == 'admin' || Auth::user()->role_users == 'teacher')
         <div class="row">
             <div class="col-lg-6 col-md-12 col-12 d-flex">
                 <div class="card flex-fill">
@@ -114,6 +132,8 @@
                 </div>
             </div>
         </div>
+        @endif
+
         @include('admin.layouts.message')
     </div>
 </div>
