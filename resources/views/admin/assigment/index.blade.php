@@ -64,8 +64,7 @@
             <div class="col-lg-12">
                 <div class="card mb-4">
 
-                    @if(Auth::user()->role_users != 'student')
-                    @else
+                    @if(Auth::user()->role_users == 'student' || Auth::user()->role_users == 'admin')
                     <div class="weppr-class container-fluid">
                         <a class="text-center create" href="{{ route('assigment.create')}}" title="Create"><i class="bi bi-plus-circle"></i></a>
                     </div>
@@ -110,16 +109,12 @@
                                             @csrf
                                             @method('DELETE')
 
-                                            @if(Auth::user()->role_users != 'student')
-                                            @else
+                                            @if(Auth::user()->role_users == 'student' || Auth::user()->role_users == 'admin')
                                             <a href="{{ route('assigment.show', $dtAssigment->id) }}" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
                                             <a href="{{ route('assigment.edit', $dtAssigment->id) }}" class="text-center edit" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
-                                            @endif
-
-                                            @if(Auth::user()->role_users != 'admin')
-                                            @else
                                             <button class="text-center trash" name="delete" value="delete" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
                                             @endif
+                                            
                                         </form>
                                     </td>
                                 </tr>

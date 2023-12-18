@@ -45,12 +45,12 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="page-title mb-0">View Lesson Value Student</h3>
+                    <h3 class="page-title mb-0">View Assigment Student</h3>
                 </div>
                 <div class="col-md-6">
                     <ul class="breadcrumb mb-0 p-0 float-right">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}"><i class="fas fa-home"></i> Home</a></li>
-                        <li class="breadcrumb-item"><span>View Lesson Value Student</span></li>
+                        <li class="breadcrumb-item"><span>View Assigment Student</span></li>
                     </ul>
                 </div>
             </div>
@@ -63,10 +63,10 @@
                         <div class="profile-img-wrap">
                             <div class="profile-img">
                                 <a href="{{ route('presence_tc.index')}}">
-                                    @empty($lesson_View->tbl_student->photo_student)
+                                    @empty($assigment_View->tbl_student->photo_student)
                                     <img class="avatar" src="{{url('admin/assets/img/profile/notprofileimages.png')}}" alt="">
                                     @else
-                                    <img class="avatar" src="{{url('admin/assets/img/profile/')}}/{{$lesson_View->tbl_student->photo_student}}" alt="">
+                                    <img class="avatar" src="{{url('admin/assets/img/profile/')}}/{{$assigment_View->tbl_student->photo_student}}" alt="">
                                     @endempty
                                 </a>
                             </div>
@@ -75,37 +75,36 @@
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="profile-info-left">
-                                        <h3 class="user-name m-t-0 previewT">{{$lesson_View->tbl_student->name_student}}</h3>
+                                        <h3 class="user-name m-t-0 previewT">{{$assigment_View->tbl_student->name_student}}</h3>
                                         <h5 class="company-role m-t-0 m-b-0 rowViewT">Student</h5>
                                         <small class="text-muted">
-
-                                            <label class="btn btn-sm btn-success mt-3">{{$lesson_View->tbl_learning->learning_class}}</label>
+                                            <label class="btn btn-sm btn-success mt-3">{{$assigment_View->file_assigment}}</label>
                                         </small>
-                                        <div class="staff-id CodViewT">Code ID : {{$lesson_View->tbl_student->code_student}}</div>
+                                        <div class="staff-id CodViewT">Code ID : {{$assigment_View->code_assigment}}</div>
                                     </div>
                                 </div>
                                 <div class="col-md-7">
                                     <ul class="personal-info">
                                         <li>
                                             <span class="title">Gender :</span>
-                                            <span class="text"><a href="">{{$lesson_View->tbl_student->gender_student}}</a></span>
+                                            <span class="text"><a href="">{{$assigment_View->tbl_student->gender_student}}</a></span>
                                         </li>
                                         <li>
-                                            <span class="title">Daily Tasks : </span>
-                                            <span class="text">{{$lesson_View->dailytasks_grade}}</span>
+                                            <span class="title">Phone : </span>
+                                            <span class="text">{{$assigment_View->tbl_student->phone_student}}</span>
                                         </li>
                                         <li>
-                                            <span class="title">UTS : </span>
-                                            <span class="text">{{$lesson_View->uts_grade}}</span>
+                                            <span class="title">Clock : </span>
+                                            <span class="text">{{$assigment_View->clock_assigment}}</span>
                                         </li>
                                         <li>
-                                            <span class="title">UAS : </span>
-                                            <span class="text">{{$lesson_View->uas_grade}}</span>
+                                            <span class="title">Address : </span>
+                                            <span class="text">{{$assigment_View->tbl_student->address_student}}</span>
                                         </li>
                                     </ul>
-                                    <a href="{{url('/lesson_value')}}" class="btn btn-danger btp">Cancel</a>
+                                    <a href="{{url('/assigment')}}" class="btn btn-danger btp">Cancel</a>
                                     @if(Auth::user()->role_users == 'teacher' || Auth::user()->role_users == 'admin')
-                                    <a href="{{ route('lesson_value.edit', $lesson_View->id) }}" type="submit" name="proses" value="simpan" id="simpan" class="btn btn-primary btp">Edit</a>
+                                    <a href="{{ route('assigment.edit', $assigment_View->id) }}" type="submit" name="proses" value="simpan" id="simpan" class="btn btn-primary btp">Edit</a>
                                     @endif
                                 </div>
                             </div>

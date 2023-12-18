@@ -52,7 +52,6 @@ Route::get('student', [StudentController::class], 'index')->middleware('auth');
 Route::get('teacher', [TeacherController::class], 'index')->middleware('auth');
 Route::get('assigment', [AssigmentController::class], 'index')->middleware('auth');
 
-
 /* Route Resource Sudah Terhubung Ke Dalam Database */
 Route::resource('dashboard', 'DashboardController')->middleware('auth');
 Route::resource('lesson_value', 'LessonController')->middleware('auth');
@@ -63,7 +62,7 @@ Route::resource('student', 'StudentController')->middleware('auth');
 Route::resource('presence_tc', 'PresenceTController')->middleware('auth');
 Route::resource('teacher', 'TeacherController')->middleware('auth');
 Route::resource('assigment', 'AssigmentController')->middleware('auth');
-Route::resource('users', 'UserController')->middleware('auth');
+Route::resource('user', 'UserController')->middleware('auth');
 
 /* Auth Routes Login */
 Auth::routes();

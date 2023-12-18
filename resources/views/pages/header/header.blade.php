@@ -11,12 +11,19 @@
             <li><a class="nav-link scrollto" href="#classroom">Classroom</a></li>
             <li><a class="nav-link scrollto" href="#team">Team</a></li>
             <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-            <li><a class="getstarted scrollto" href="{{ route('login') }}">
-                    @if(empty(Auth::user()->name))
-                    {{'Login'}}
-                    @else
-                    {{Auth::user()->name}}
-                    @endif</a></li>
+            <li>
+                @guest
+                <a class="getstarted scrollto" href="{{ route('login') }}">
+                    <label style="cursor: pointer;">{{ 'Login' }}</label>
+                </a>
+                @else
+                <a class="getstarted scrollto" href="{{ route('dashboard.index') }}">
+                    <label style="cursor: pointer;">
+                        {{Auth::user()->name}}
+                    </label>
+                </a>
+                @endguest
+            </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->

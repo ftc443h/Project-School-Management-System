@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -14,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('auth.login');
+        $myuser = User::class;
+        return view('admin.user.index', compact('myuser'));
     }
 
     /**

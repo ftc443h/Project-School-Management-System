@@ -17,6 +17,34 @@
             </div>
         </div>
 
+        <div class="card-box pd-20 height-100-p mb-30">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <img class="img-fluid" src="{{ asset('admin/assets/img/users/') }}/{{Auth::user()->photo}}" alt="">
+                </div>
+                <div class="col-md-8 cls">
+                    <h4 class="klass">
+                        Welcome Back @if(empty(Auth::user()->name))
+                        @else
+                        {{Auth::user()->name}}!
+                        @endif
+                    </h4>
+                    <p class="Prgk img-fluid">
+                        Pellentesque habitant morbi tristique senectus et
+                        netus et malesuada fames ac turpis egestas. Vestibulum
+                        tortor quam, feugiat vitae, ultricies eget, tempor sit amet,
+                        ante. Donec eu libero sit amet quam egestas semper. Aenean
+                        ultricies mi vitae est. Mauris placerat eleifend leo.
+                        Pellentesque habitant morbi tristique senectus et
+                        netus et malesuada fames ac turpis egestas. Vestibulum
+                        tortor quam, feugiat vitae, ultricies eget, tempor sit amet,
+                        ante. Donec eu libero sit amet quam egestas semper. Aenean
+                        ultricies mi vitae est. Mauris placerat eleifend leo.
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                 <div class="dash-widget dash-widget5">

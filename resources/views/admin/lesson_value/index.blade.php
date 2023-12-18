@@ -87,10 +87,7 @@
                                     <th class="text-center">Grade</th>
                                     <th class="text-center">Predikat</th>
                                     <th class="text-center">Status</th>
-                                    @if(Auth::user()->role_users == 'admin')
-                                    @else
                                     <th class="text-center">Action</th>
-                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -133,26 +130,21 @@
 
                                         <label class="btn btn-sm {{ $btn_color }}">{{ $lessoV->ketnilai }}</label>
                                     </td>
-                                    @if(Auth::user()->role_users == 'admin')
-                                    @else
                                     <td class="text-center">
                                         <form method="POST" action="{{ route('lesson_value.destroy', $lessoV->id) }}">
                                             @csrf
                                             @method('DELETE')
 
-                                            @if(Auth::user()->role_users != 'student')
-                                            @else
+                                            @if(Auth::user()->role_users != 'student' || Auth::user()->role_users == 'admin')
                                             <a href="{{ route('lesson_value.show', $lessoV->id) }}" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
                                             @endif
 
-                                            @if(Auth::user()->role_users != 'teacher')
-                                            @else
+                                            @if(Auth::user()->role_users == 'teacher' || Auth::user()->role_users == 'admin')
                                             <a href="{{ route('lesson_value.edit', $lessoV->id) }}" class="text-center edit" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
                                             <button class="text-center trash" name="delete" value="delete" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
                                             @endif
                                         </form>
                                     </td>
-                                    @endif
                                 </tr>
                                 @php $no++; @endphp
                                 @endforeach
