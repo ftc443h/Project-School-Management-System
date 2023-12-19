@@ -36,6 +36,19 @@ class ClassroomController extends Controller
         ]);
     }
 
+    public function landing(){
+        
+        /* Join Table Classroom, Teacher, Student, Learning */
+        $landing = DB::table('tbl_classroom')
+            ->join('tbl_teacher', 'tbl_teacher.id', '=', 'tbl_classroom.tbl_teacher_id')
+            ->join('tbl_student', 'tbl_student.id', '=', 'tbl_classroom.tbl_student_id')
+            ->join('tbl_learning', 'tbl_learning.id', '=', 'tbl_classroom.tbl_learning_id')
+            ->select('tbl_classroom.*', 'tbl_teacher.name_teacher as teacher', 'tbl_student.name_student as student', 'tbl_learning.learning_class as learning')
+            ->get();
+            
+        return view('pages.main.main', compact('landing'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

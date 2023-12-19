@@ -38,10 +38,13 @@
                 </div>
                 <div class="col-md-8 cls">
                     <h4 class="klass">
-                        Welcome Back @if(empty(Auth::user()->name))
+                        Welcome Back 
+                        <span style="color: #00A9FF; font-size: 17px; font-weight: bold;">
+                        @if(empty(Auth::user()->name))
                         @else
                         {{Auth::user()->name}}!
                         @endif
+                        </span>
                     </h4>
                     <p class="Prgk img-fluid">
                         Pellentesque habitant morbi tristique senectus et

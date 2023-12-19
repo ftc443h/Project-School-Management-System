@@ -29,10 +29,6 @@ use App\Http\Controllers\PdfController;
 */
 
 Route::get('/', function () {
-    return view('pages.layouts.index');
-});
-
-Route::get('/', function () {
     return view('pages.main.main');
 });
 
