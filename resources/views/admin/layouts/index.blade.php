@@ -25,6 +25,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('admin/assets/profile/profile.css') }}">
+
+    <link href="{{ asset('admin/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/vendor/quill/quill.snow.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
 
 </head>
 
@@ -62,6 +68,14 @@
     <script src="{{ asset('admin/assets/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('admin/assets/js/sweetalert2.js') }}"></script>
+    <script src="{{ asset('admin/assets/profile/profile.js') }}"></script>
+
+    <!-- Vendor JS Files -->
+    <script src="{{ asset('admin/assets/profile/vendor/apexcharts/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/profile/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/profile/vendor/chart.js/chart.umd.js') }}"></script>
+    <script src="{{ asset('admin/assets/profile/vendor/echarts/echarts.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/profile/vendor/quill/quill.min.js') }}"></script>
 
     <!-- Page level custom scripts -->
     <script>

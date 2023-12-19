@@ -50,8 +50,8 @@
                 </li>
                 <li class="menu-title">Pages</li>
                 <li class="submenu">
-                <li class="{{ ($active === 'user') ? 'active' : '' }}">
-                    <a href="{{ route('user.index') }}"><img src="{{ asset('admin/assets/img/sidebar/icon-4.png') }}" alt="icon"><span>Profile</span></a>
+                <li class="{{ ($active === 'profile') ? 'active' : '' }}">
+                    <a href="{{ route('profile.index') }}"><img src="{{ asset('admin/assets/img/sidebar/icon-4.png') }}" alt="icon"><span>Profile</span></a>
                 </li>
                 <li>
                     <a href="{{ url('/') }}"><img src="{{ asset('admin/assets/img/sidebar/icon-15.png') }}" alt="icon"><span>Pages</span></a>

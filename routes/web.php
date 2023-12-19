@@ -10,11 +10,11 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LearningController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\PresenceSController;
 use App\Http\Controllers\PresenceTController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\AssigmentController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PdfController;
 
 /*
@@ -37,7 +37,7 @@ Route::get('/login', function () {
 });
 
 /* Route Get Sudah Terhubung Ke Dalam Controller */
-Route::get('user', [UserController::class], 'index')->middleware('auth');
+Route::get('profile', [ProfileController::class], 'index')->middleware('auth');
 Route::get('dashboard', [DashboardController::class], 'index')->middleware('auth');
 Route::get('lesson_value', [LessonController::class], 'index')->middleware('auth');
 Route::get('classroom', [ClassroomController::class], 'index')->middleware('auth');
@@ -49,6 +49,7 @@ Route::get('teacher', [TeacherController::class], 'index')->middleware('auth');
 Route::get('assigment', [AssigmentController::class], 'index')->middleware('auth');
 
 /* Route Resource Sudah Terhubung Ke Dalam Database */
+Route::resource('profile', 'ProfileController')->middleware('auth');
 Route::resource('dashboard', 'DashboardController')->middleware('auth');
 Route::resource('lesson_value', 'LessonController')->middleware('auth');
 Route::resource('classroom', 'ClassroomController')->middleware('auth');
@@ -58,7 +59,6 @@ Route::resource('student', 'StudentController')->middleware('auth');
 Route::resource('presence_tc', 'PresenceTController')->middleware('auth');
 Route::resource('teacher', 'TeacherController')->middleware('auth');
 Route::resource('assigment', 'AssigmentController')->middleware('auth');
-Route::resource('user', 'UserController')->middleware('auth');
 
 /* Auth Routes Login */
 Auth::routes();

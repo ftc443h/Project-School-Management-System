@@ -127,7 +127,7 @@
                             @endif
                         </span>
                     </a>
-                    <a class="dropdown-item" href="{{ route('user.index') }}">My Profile</a>
+                    <a class="dropdown-item" href="{{ route('profile.index') }}">My Profile</a>
                     <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
                     <a class="dropdown-item" href="settings.html">Settings</a>
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
