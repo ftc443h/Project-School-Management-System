@@ -4,6 +4,8 @@
 <div class="page-wrapper">
     <div class="content container-fluid">
 
+        @include('sweetalert::alert')
+
         <div class="page-header">
             <div class="row">
                 <div class="col-md-6">
@@ -26,7 +28,7 @@
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                             @if(empty(Auth::user()->photo))
-                            <img class="rounded-circle" src="{{ url('admin/assets/img/profile/notprofileimages.png') }}" style="width: 100px; height: 100px;">
+                            <img class="rounded-circle" src="{{ url('admin/assets/img/users/banner-img.png') }}" style="width: 100px; height: 100px;">
                             @else
                             <img class="rounded-circle" src="{{ url('admin/assets/img/users/') }}/{{Auth::user()->photo}}" style="width: 100px; height: 100px;">
                             @endif
@@ -67,9 +69,9 @@
                                     <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
                                 </li>
 
-                                <!-- <li class="nav-item">
+                                <li class="nav-item">
                                     <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
-                                </li> -->
+                                </li>
 
                             </ul>
                             <div class="tab-content pt-2">
@@ -102,19 +104,49 @@
                                         </div>
                                     </div>
 
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Phone</div>
+                                        <div class="col-lg-9 col-md-8">:
+                                            @if(empty(Auth::user()->role_users))
+                                            {{''}}
+                                            @else
+                                            {{Auth::user()->phone}}
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Status</div>
+                                        <div class="col-lg-9 col-md-8">: 
+                                            <label class="btn btn-sm btn-success mt-2">
+                                            @if(empty(Auth::user()->role_users))
+                                            {{''}}
+                                            @else
+                                            {{Auth::user()->status_users}}
+                                            @endif
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Address</div>
+                                        <div class="col-lg-9 col-md-8">:
+                                            @if(empty(Auth::user()->role_users))
+                                            {{''}}
+                                            @else
+                                            {{Auth::user()->address}}
+                                            @endif
+                                        </div>
+                                    </div>
+
                                 </div>
-
-                                <!-- Edit User Login -->
-
+                                @include('admin.profile.edit')
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
-
     </div>
 </div>
 

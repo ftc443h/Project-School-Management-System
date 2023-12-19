@@ -27,7 +27,8 @@ class ClassroomController extends Controller
             ->join('tbl_teacher', 'tbl_teacher.id', '=', 'tbl_classroom.tbl_teacher_id')
             ->join('tbl_student', 'tbl_student.id', '=', 'tbl_classroom.tbl_student_id')
             ->join('tbl_learning', 'tbl_learning.id', '=', 'tbl_classroom.tbl_learning_id')
-            ->select('tbl_classroom.*', 'tbl_teacher.name_teacher as teacher', 'tbl_student.name_student as student', 'tbl_learning.learning_class as learning')
+            ->join('users', 'users.id', '=', 'tbl_classroom.users_id')
+            ->select('tbl_classroom.*', 'tbl_teacher.name_teacher as teacher', 'tbl_student.name_student as student', 'tbl_learning.learning_class as learning', 'users.name as users')
             ->get();
             
         $classroomCount = $classroom->count();

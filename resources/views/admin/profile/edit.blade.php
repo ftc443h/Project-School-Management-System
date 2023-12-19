@@ -1,6 +1,6 @@
 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
-    <form method="POST" action="#" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('profile.update', Auth::user()->id) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="row mb-3">
@@ -42,8 +42,8 @@
         <div class="row mb-3">
             <label for="phone_users" class="col-md-4 col-lg-3">Phone</label>
             <div class="col-md-8 col-lg-9">
-                <input name="phone_users" type="text" value="{{Auth::user()->phone_users}}" class="form-control @error ('phone_users') is-invalid @else is-valid @enderror" id="phone_users">
-                @error('phone_users')
+                <input name="phone" type="text" value="{{Auth::user()->phone}}" class="form-control @error ('phone') is-invalid @else is-valid @enderror" id="phone_users">
+                @error('phone')
                 <div class="invalid-feedback">
                     {{$message}}
                 </div>
@@ -54,7 +54,7 @@
         <div class="row mb-3">
             <label for="address_users" class="col-md-4 col-lg-3 col-form-label AbLS">Address</label>
             <div class="col-md-8 col-lg-9">
-                <textarea name="address_users" class="form-control" id="address_users" style="height: 100px">{{Auth::user()->address_users}}</textarea>
+                <textarea name="address" class="form-control" id="address" style="height: 100px">{{Auth::user()->address}}</textarea>
             </div>
         </div>
 

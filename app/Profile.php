@@ -18,4 +18,14 @@ class Profile extends Model
         'isactive',
         'status_users'
     ]);
+
+    public function tbl_teacher()
+    {
+        return $this->belongsTo('App\Teacher');
+    }
+
+    public function tbl_student()
+    {
+        return $this->belongsTo('App\Student');
+    }
 }

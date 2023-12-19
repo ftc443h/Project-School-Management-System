@@ -16,8 +16,9 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $myuser = Profile::all();
+    {   
+        $myuser = User::all();
+
         return view('admin.profile.index', compact('myuser'),[
             'active' => 'profile',]);
     }
@@ -62,8 +63,8 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        $my_edt = Profile::find($id);
-        return view('admin.profile.edit', compact('my_edt'));
+        $myedit = Auth::user($id);
+        return view('admin.profile.edit', compact('myedit'));
     }
 
     /**
@@ -80,15 +81,15 @@ class ProfileController extends Controller
                 'photo' => 'required|image|mimes:jpg,png,gif,svg|min:2|max:280',
                 'name' => 'required|max:100',
                 'email' => 'required|max:50',
-                'phone_users' => 'required|max:15',
-                'address_users' => 'required',
+                'phone' => 'required|max:15',
+                'address' => 'required',
             ],
 
             /* Validate Edit Teacher */
             [
-                'address_users.required' => 'Input Address Users',
+                'address.required' => 'Input Address Users',
                 'name.required' => 'Input Name Users',
-                'phone_users.max' => 'Input Telephone Max 15',
+                'phone.max' => 'Input Telephone Max 15',
                 'photo.max' => 'Input File Max 280',
                 'photo.min' => 'Input File Min 2 MB',
                 'photo.mimes' => 'Input jpg,png,gif,svg',
@@ -96,8 +97,8 @@ class ProfileController extends Controller
                 'email.required' => 'Input E-Mail Teacher',
                 'email.max' => 'Input E-Mail Max 50',
                 'email.unique' => 'Cant Match Existing Email',
-                'phone_users.required' => 'Input Telephone',
-                'phone_users.integer' => 'Input Number Telephone',
+                'phone.required' => 'Input Telephone',
+                'phone.integer' => 'Input Number Telephone',
             ]
         );
 
@@ -112,7 +113,7 @@ class ProfileController extends Controller
 
         if (!empty($request->photo)) {
             if (!empty($photoOld)) unlink('admin/assets/img/users/'.$photoOld);
-            $fileName = 'foto_' . $request->name . '.' . $request->photo->extension();
+            $fileName = 'foto_' . $request->id . '.' . $request->photo->extension();
             $request->photo->move(public_path('admin/assets/img/users'), $fileName);
         } else {
             $fileName = $photoOld;
@@ -123,9 +124,8 @@ class ProfileController extends Controller
             'photo' => $fileName,
             'name' => $request->name,
             'email' => $request->email,
-            'phone_users' => $request->phone_users,
-            'address_users' => $request->address_users,
-            'update_at' => now(),
+            'phone' => $request->phone,
+            'address' => $request->address,
         ]);
 
         return redirect()->route('profile.index')->with('success', 'Legacy User Data Has Been Successfully Edited');
