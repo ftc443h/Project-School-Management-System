@@ -40,12 +40,14 @@
                                 {{Auth::user()->name}}
                                 @endif
                             </h2>
-                            <h3>
+                            <h3 class="mt-3">
+                                <label class="btn btn-sm btn-success">
                                 @if(empty(Auth::user()->role_users))
                                 {{''}}
                                 @else
-                                {{Auth::user()->role_users}}
+                                {{Auth::user()->status_users}}
                                 @endif
+                                </label>
                             </h3>
                             <div class="social-links mt-2">
                                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -116,15 +118,13 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Status</div>
+                                        <div class="col-lg-3 col-md-4 label">Role</div>
                                         <div class="col-lg-9 col-md-8">: 
-                                            <label class="btn btn-sm btn-success mt-2">
                                             @if(empty(Auth::user()->role_users))
                                             {{''}}
                                             @else
-                                            {{Auth::user()->status_users}}
+                                            {{Auth::user()->role_users}}
                                             @endif
-                                            </label>
                                         </div>
                                     </div>
 
