@@ -101,7 +101,7 @@
                 <a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><img src="{{ asset('admin/assets/img/sidebar/icon-23.png') }}" alt=""> </a>
             </li>
             <li class="nav-item dropdown has-arrow">
-                <a href="#" class=" nav-link user-link" data-toggle="dropdown">
+                <a class=" nav-link user-link" data-toggle="dropdown">
                     <span class="user-img">
                         @if(empty(Auth::user()->photo))
                         <img class="rounded-circle" src="{{ url('admin/assets/img/profile/notprofileimages.png') }}" style="width: 34px; height: 34px;">
@@ -118,7 +118,7 @@
                     </span>
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="profile.html" style="color: cornsilk;">
+                    <a class="dropdown-item" href="{{ route('profile.index') }}" style="color: cornsilk;">
                         <span class="btn btn-sm btn-success" style="width: 100px; font-weight: bold; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-transform: uppercase; font-size: 12px;">
                             @if(empty(Auth::user()->role_users))
                             {{''}}
@@ -129,7 +129,6 @@
                     </a>
                     <a class="dropdown-item" href="{{ route('profile.index') }}">My Profile</a>
                     <a class="dropdown-item" href="{{ route('profile.index') }}">Edit Profile</a>
-                    <a class="dropdown-item" href="{{ route('profile.index') }}">Settings</a>
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                         Logout

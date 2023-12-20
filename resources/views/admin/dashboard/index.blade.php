@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-md-6">
                     <ul class="breadcrumb mb-0 p-0 float-right">
-                        <li class="breadcrumb-item"><a href="{{ url('index') }}"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="breadcrumb-item"><a><i class="fas fa-home"></i> Home</a></li>
                         <li class="breadcrumb-item"><span>Dashboard</span></li>
                     </ul>
                 </div>
@@ -119,11 +119,11 @@
                                 <div class=" mt-sm-0 mt-2">
                                     <button class="btn btn-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item">Action</a>
                                         <div role="separator" class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item">Another action</a>
                                         <div role="separator" class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <a class="dropdown-item">Something else here</a>
                                     </div>
                                 </div>
                             </div>

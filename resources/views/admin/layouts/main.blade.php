@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-md-6">
                     <ul class="breadcrumb mb-0 p-0 float-right">
-                        <li class="breadcrumb-item"><a href="{{ url('index') }}"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="breadcrumb-item"><a><i class="fas fa-home"></i> Home</a></li>
                         <li class="breadcrumb-item"><span>Dashboard</span></li>
                     </ul>
                 </div>
