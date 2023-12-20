@@ -16,6 +16,7 @@ use App\Http\Controllers\LessonController;
 use App\Http\Controllers\AssigmentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PdfController;
+use App\Lesson;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,3 +66,4 @@ Auth::routes();
 
 /* Route PDF */
 Route::get('surat_perizinan', [ClassroomController::class, 'generatePDF'])->middleware('auth');
+Route::get('pernilaian_studen', [LessonController::class, 'generatenailaiPDF'])->middleware('auth');

@@ -9,6 +9,7 @@ use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class LessonController extends Controller
 {
@@ -230,5 +231,68 @@ class LessonController extends Controller
         /* Alert Delete Global Laravel 5.8 */
         toast('Success Delete Data Lesson Value Student', 'success');
         return redirect()->back();
+    }
+
+    public function generatenailaiPDF(){
+
+        /* Join Table Student & Learning */
+        $lessonP = DB::table('tbl_grade')
+            ->join('tbl_student', 'tbl_student.id', '=', 'tbl_grade.tbl_student_id')
+            ->join('tbl_learning', 'tbl_learning.id', '=', 'tbl_grade.tbl_learning_id')
+            ->select(
+                'tbl_grade.*',
+                'tbl_learning.learning_class as learning',
+                'tbl_student.name_student as student',
+                'tbl_student.photo_student as photo',
+                'tbl_student.code_student as code',
+                'tbl_student.gender_student as gender'
+            )
+            ->get();
+
+        foreach ($lessonP as $value) {
+            $value->average_grade = ($value->dailytasks_grade + $value->uts_grade + $value->uas_grade) / 3;
+            $ketnilai = ($value->average_grade >= 60) ? 'Graduate' : 'Not Pass';
+
+            if ($value->average_grade >= 86 && $value->average_grade <= 100) {
+                $grade = 'A';
+            } elseif ($value->average_grade >= 76 && $value->average_grade < 86) {
+                $grade = 'B';
+            } elseif ($value->average_grade >= 60 && $value->average_grade < 76) {
+                $grade = 'C';
+            } elseif ($value->average_grade >= 31 && $value->average_grade < 60) {
+                $grade = 'D';
+            } elseif ($value->average_grade >= 0 && $value->average_grade < 31) {
+                $grade = 'E';
+            } else {
+                $grade = ' ';
+            }
+
+            switch ($grade) {
+                case 'A':
+                    $predikat = 'Very Good';
+                    break;
+                case 'B':
+                    $predikat = 'Good';
+                    break;
+                case 'C':
+                    $predikat = 'Enough';
+                    break;
+                case 'D':
+                    $predikat = 'Bad';
+                    break;
+                case 'E':
+                    $predikat = 'Very Bad';
+                    break;
+                default:
+                    $predikat = '';
+            };
+
+            $value->grade = $grade;
+            $value->predikat = $predikat;
+            $value->ketnilai = $ketnilai;
+        };
+
+        $lessonPDF = PDF::loadView('admin.lesson_value.pdf.pernilaian_studen', compact('lessonP'));
+        return $lessonPDF->download('pernilaian_studen.pdf');
     }
 }

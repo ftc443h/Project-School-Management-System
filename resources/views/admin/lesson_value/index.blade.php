@@ -69,6 +69,12 @@
                         <a class="text-center create" href="{{ route('lesson_value.create') }}" title="Create"><i class="bi bi-plus-circle"></i></a>
                     </div>
                     @endif
+                    @if(Auth::user()->role_users != 'student')
+                    @else
+                    <div class="weppr-class container-fluid">
+                        <a class="text-center PDF" href="{{ url('/pernilaian_studen') }}" title="Permit Letter"><i class="bi bi-file-earmark-pdf"></i></a>
+                    </div>
+                    @endif
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 
                     </div>
@@ -135,7 +141,7 @@
                                             @csrf
                                             @method('DELETE')
 
-                                            @if(Auth::user()->role_users != 'student' || Auth::user()->role_users == 'admin')
+                                            @if(Auth::user()->role_users == 'student' || Auth::user()->role_users == 'admin')
                                             <a href="{{ route('lesson_value.show', $lessoV->id) }}" class="text-center eyes" title="View"><i class="bi bi-eye-fill text-center"></i></a>
                                             @endif
 
