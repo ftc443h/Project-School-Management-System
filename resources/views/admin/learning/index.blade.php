@@ -37,7 +37,7 @@
                 <div class="dash-widget dash-widget5">
                     <span class="float-left"><img src="{{ asset('admin/assets/img/dash/dash-6.png') }}" alt="" width="80"></span>
                     <div class="dash-widget-info text-right">
-                        <span>Learning</span>
+                        <span>Lesson</span>
                         <h3>{{ $learningCount }}</h3>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th class="text-center">No</th>
-                                    <th class="text-center">Learning</th>
+                                    <th class="text-center">Lesson</th>
                                     <th class="text-center">Category</th>
                                     @if(Auth::user()->role_users != 'admin')
                                     @else

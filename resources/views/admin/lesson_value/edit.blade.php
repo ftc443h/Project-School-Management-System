@@ -36,7 +36,7 @@
                 <div class="dash-widget dash-widget5">
                     <span class="float-left"><img src="{{ asset('admin/assets/img/dash/dash-6.png') }}" alt="" width="80"></span>
                     <div class="dash-widget-info text-right">
-                        <span>Learning</span>
+                        <span>Lesson</span>
                         <h3>{{ $learningCount }}</h3>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="bi bi-book-half col-form-label col-md-2 LabForm"> Learning</label>
+                                <label class="bi bi-book-half col-form-label col-md-2 LabForm"> Lesson</label>
                                 <div class="col-md-10">
                                     <select name="tbl_learning_id" class="form-control @error ('learning_class') is-invalid @else is-valid @enderror">
                                         <option class="">-- Please Select --</option>

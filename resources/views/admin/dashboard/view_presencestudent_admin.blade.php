@@ -25,8 +25,8 @@
             <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                 <div class="dash-widget dash-widget5">
                     <div class="dash-widget-info text-left d-inline-block">
-                        <span>Presence Teacher</span>
-                        <h3>{{ $presensi_tCount }}</h3>
+                        <span>Classroom</span>
+                        <h3>{{ $classroomCount }}</h3>
                     </div>
                     <span class="float-right"><img src="{{ asset('admin/assets/img/dash/dash-2.png') }}" width="80" alt=""></span>
                 </div>
@@ -35,8 +35,8 @@
                 <div class="dash-widget dash-widget5">
                     <span class="float-left"><img src="{{ asset('admin/assets/img/dash/dash-6.png') }}" alt="" width="80"></span>
                     <div class="dash-widget-info text-right">
-                        <span>Presence Student</span>
-                        <h3>{{ $presensi_sCount }}</h3>
+                        <span>Lesson</span>
+                        <h3>{{ $learningCount }}</h3>
                     </div>
                 </div>
             </div>

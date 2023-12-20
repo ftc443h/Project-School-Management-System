@@ -36,8 +36,8 @@
                 <div class="dash-widget dash-widget5">
                     <span class="float-left"><img src="{{ asset('admin/assets/img/dash/dash-6.png') }}" alt="" width="80"></span>
                     <div class="dash-widget-info text-right">
-                        <span>Learning</span>
-                        <h3>{{ $learningCount }}</h3>
+                        <span>Lesson</span>
+                        <h3>{{ $LessonCount }}</h3>
                     </div>
                 </div>
             </div>
