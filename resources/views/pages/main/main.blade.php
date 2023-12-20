@@ -11,7 +11,7 @@
                     <h3>About</h3>
                     <h2>School Management System</h2>
                     <p>
-                    Welcome to our School Management System, where efficiency meets quality education. We provide integrated solutions to help your school manage all aspects of operations easily. Providing innovation in the world of education, our School Management System is designed to help educational institutions manage student data, lesson schedules, and school administration in a smarter and more effective way.
+                        Welcome to our School Management System, where efficiency meets quality education. We provide integrated solutions to help your school manage all aspects of operations easily. Providing innovation in the world of education, our School Management System is designed to help educational institutions manage student data, lesson schedules, and school administration in a smarter and more effective way.
                     </p>
                     <div class="text-center text-lg-start">
                         <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
