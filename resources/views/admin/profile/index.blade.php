@@ -50,10 +50,10 @@
                                 </label>
                             </h3>
                             <div class="social-links mt-2">
-                                <a href="https://twitter.com/" class="twitter"><i class="bi bi-twitter"></i></a>
-                                <a href="https://www.facebook.com/" class="facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="https://www.instagram.com/accounts/login/" class="instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="https://www.linkedin.com/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                                <a target="_blank" href="https://twitter.com/" class="twitter"><i class="bi bi-twitter"></i></a>
+                                <a target="_blank" href="https://www.facebook.com/" class="facebook"><i class="bi bi-facebook"></i></a>
+                                <a target="_blank" href="https://www.instagram.com/accounts/login/" class="instagram"><i class="bi bi-instagram"></i></a>
+                                <a target="_blank" href="https://www.linkedin.com/" class="linkedin"><i class="bi bi-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
