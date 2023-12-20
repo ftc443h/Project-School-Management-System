@@ -128,8 +128,8 @@
                         </span>
                     </a>
                     <a class="dropdown-item" href="{{ route('profile.index') }}">My Profile</a>
-                    <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
-                    <a class="dropdown-item" href="settings.html">Settings</a>
+                    <a class="dropdown-item" href="{{ route('profile.index') }}">Edit Profile</a>
+                    <a class="dropdown-item" href="{{ route('profile.index') }}">Settings</a>
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                         Logout
