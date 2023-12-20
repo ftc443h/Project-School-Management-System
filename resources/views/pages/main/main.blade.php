@@ -111,40 +111,40 @@
 
             <div class="col-lg-3 col-md-6">
                 <div class="count-box">
-                    <i class="bi bi-emoji-smile"></i>
+                    <i class="bi bi-person-rolodex"></i>
                     <div>
-                        <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-                        <p>Happy Clients</p>
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $studentCount }}" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Student</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-6">
                 <div class="count-box">
-                    <i class="bi bi-journal-richtext" style="color: #ee6c20;"></i>
+                    <i class="bi bi-person-square" style="color: #ee6c20;"></i>
                     <div>
-                        <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                        <p>Projects</p>
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $teacherCount }}" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Teacher</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-6">
                 <div class="count-box">
-                    <i class="bi bi-headset" style="color: #15be56;"></i>
+                    <i class="bi bi-house-door" style="color: #15be56;"></i>
                     <div>
-                        <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-                        <p>Hours Of Support</p>
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $classroomCount }}" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Classroom</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-6">
                 <div class="count-box">
-                    <i class="bi bi-people" style="color: #bb0852;"></i>
+                    <i class="bi bi-book-half" style="color: #bb0852;"></i>
                     <div>
-                        <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-                        <p>Hard Workers</p>
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $learningCount }}" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Lesson</p>
                     </div>
                 </div>
             </div>

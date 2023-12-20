@@ -124,7 +124,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="bi bi-book-half col-form-label col-md-2 LabForm"> Learning</label>
+                                <label class="bi bi-book-half col-form-label col-md-2 LabForm"> Lesson</label>
                                 <div class="col-md-10">
                                     <select name="tbl_learning_id" class="form-control @error ('learning_class') is-invalid @else is-valid @enderror">
                                         <option class="">-- Please Select --</option>
