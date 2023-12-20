@@ -101,7 +101,7 @@
                                     <td class="text-center">{{ $dtAssigment->code_assigment }}</td>
                                     <td class="text-center">{{ $dtAssigment->student }}</td>
                                     <td class="text-center">
-                                        <a class="text-center btn btn-sm btn-success img-fluid" style="color: white;" href="{{ asset('admin/assets/assigment/student/' . $dtAssigment->file_assigment) }}">{{ $dtAssigment->file_assigment }}</a>
+                                        <a target="_blank" class="text-center btn btn-sm btn-success img-fluid" style="color: white;" href="{{ asset('admin/assets/assigment/student/' . $dtAssigment->file_assigment) }}">{{ $dtAssigment->file_assigment }}</a>
                                     </td>
                                     <td class="text-center">{{ $dtAssigment->clock_assigment }}</td>
                                     <td class="text-center">
