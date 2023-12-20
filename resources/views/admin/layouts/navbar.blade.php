@@ -2,7 +2,7 @@
     <div class="sidebar-inner slimscroll">
         <div id="sidebar-menu" class="sidebar-menu">
             <div class="header-left">
-                <a class="logo">
+                <a href="{{ url('/') }}" class="logo">
                     <img src="{{ asset('admin/assets/img/logo1.png') }}" width="40" height="40" alt="">
                     <span class="text-uppercase">Preschool</span>
                 </a>
@@ -47,14 +47,6 @@
                 <li class="submenu">
                 <li class="{{ ($active === 'assigment') ? 'active' : '' }}">
                     <a href="{{ route('assigment.index') }}"><img src="{{ asset('admin/assets/img/sidebar/icon-4.png') }}" alt="icon"><span>Assignment</span></a>
-                </li>
-                <li class="menu-title">Pages</li>
-                <li class="submenu">
-                <li class="{{ ($active === 'profile') ? 'active' : '' }}">
-                    <a href="{{ route('profile.index') }}"><img src="{{ asset('admin/assets/img/sidebar/icon-4.png') }}" alt="icon"><span>Profile</span></a>
-                </li>
-                <li>
-                    <a href="{{ url('/') }}"><img src="{{ asset('admin/assets/img/sidebar/icon-15.png') }}" alt="icon"><span>Pages</span></a>
                 </li>
             </ul>
         </div>
