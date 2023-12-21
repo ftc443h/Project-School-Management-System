@@ -133,6 +133,7 @@
                                             <a href="{{ route('presence_st.edit', $presence_stt->id) }}" class="text-center edit" title="Edit"><i class="bi bi-pencil-square text-center"></i></a>
                                             <button class="text-center trash" title="Trash"><i class="bi bi-trash3 text-center"></i></button>
                                             @endif
+                                        </form>
                                     </td>
                                 </tr>
                                 @php $no++; @endphp
